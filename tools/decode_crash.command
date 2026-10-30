@@ -1,6 +1,6 @@
 #!/bin/bash
 # Decodes the last ESP32 crash backtrace in logs/esp32_serial.log -> logs/crash_decoded.txt
-P=~/Desktop/Y2S1/CG2271/Project/logs
+P="$(cd "$(dirname "$0")/.." && pwd)/logs"
 OUT=$P/crash_decoded.txt
 ELF=$(ls -t ~/Library/Caches/arduino/sketches/*/doomscroll_esp32.ino.elf 2>/dev/null | head -1)
 A2L=$(find ~/Library/Arduino15/packages/esp32/tools -name 'xtensa*addr2line' 2>/dev/null | grep -i s2 | head -1)

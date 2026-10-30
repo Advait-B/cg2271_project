@@ -30,7 +30,6 @@ async function readState() {
     idle: "Press the button on your Doomscroll Breaker to open the app.",
     locked: "No videos left today. Hold the button to ask your friend for more.",
     waiting: "Waiting for your friend to approve more videos...",
-    break: "Break in progress.",
     open: "No videos left today. Hold the button to ask your friend for more."
   };
   return { allowed: false, reason: data.state, left, detail: why[data.state] || "Locked." };

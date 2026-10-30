@@ -1,7 +1,12 @@
 #!/bin/bash
-# Double-click: resets the ESP32 and records 30 s of its serial output to esp32_serial.log
-LOG=~/Desktop/Y2S1/CG2271/Project/logs/esp32_serial.log
+# Resets the ESP32 and records its serial output to logs/esp32_serial.log.
+# Usage: bash tools/ESP32_monitor.command [seconds, default 120]
+ROOT="$(cd "$(dirname "$0")/.." && pwd)"
+mkdir -p "$ROOT/logs"
+LOG="$ROOT/logs/esp32_serial.log"
 PORT=$(ls /dev/cu.SLAB_USBtoUART /dev/cu.usbserial-* /dev/cu.wchusbserial* 2>/dev/null | head -1)
+[ -z "$PORT" ] && { echo "No ESP32 serial port found."; exit 1; }
+pkill -f doomscroll_keys.py 2>/dev/null   # frees the serial port
 SECS=${1:-120}
 python3 - "$PORT" "$LOG" "$SECS" <<'PY'
 import sys,os,termios,fcntl,struct,time,select

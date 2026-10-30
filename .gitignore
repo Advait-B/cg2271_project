@@ -2,5 +2,6 @@
 logs/
 __pycache__/
 *.pyc
-# real keys stay on your machine; copy doomscroll_esp32/secrets.example.h to secrets.h
-doomscroll_esp32/secrets.h
+# MCUXpresso build output
+mcxc444/MCXC444_Project/Debug/
+mcxc444/MCXC444_Project/Release/
