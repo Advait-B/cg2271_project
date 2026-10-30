@@ -1,0 +1,322 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1680 1188" width="1680" height="1188" xmlns:c2pa="http://c2pa.org/manifest"><metadata><c2pa:manifest>AAAWgmp1bWIAAAAeanVtZGMycGEAEQAQgAAAqgA4m3EDYzJwYQAAABZcanVtYgAAAEdqdW1kYzJtYQARABCAAACqADibcQN1cm46YzJwYTo0OGJkODkxYi1hZmE2LTQzNjktOGZkMi0zODkzOWQ0Mzg3MmEAAAADl2p1bWIAAAApanVtZGMyYXMAEQAQgAAAqgA4m3EDYzJwYS5hc3NlcnRpb25zAAAAALxqdW1iAAAARGp1bWRjYm9yABEAEIAAAKoAOJtxE2MycGEuaW5ncmVkaWVudC52MwAAAAAYYzJzaNhUQh8bGQx3Zma1Ogt3O9EAAABwY2JvcqNpZGM6Zm9ybWF0bWltYWdlL3N2Zyt4bWxqaW5zdGFuY2VJRHgseG1wOmlpZDpkYTZkZTIxOC05MjIyLTQ3MzYtOGIxNC02NzJhMzFiNDcxNWRscmVsYXRpb25zaGlwaHBhcmVudE9mAAAB4mp1bWIAAABBanVtZGNib3IAEQAQgAAAqgA4m3ETYzJwYS5hY3Rpb25zLnYyAAAAABhjMnNo7a6731AxTU87AdcJLFbRywAAAZljYm9yomdhY3Rpb25zgqJmYWN0aW9ua2MycGEub3BlbmVkanBhcmFtZXRlcnOha2luZ3JlZGllbnRzgaJjdXJseC1zZWxmI2p1bWJmPWMycGEuYXNzZXJ0aW9ucy9jMnBhLmluZ3JlZGllbnQudjNkaGFzaFggZw0Cjt6O7zxIKBg+toMs6nPmrFj8jQ6DpwbnklHV6rakZmFjdGlvbngdY29tLmFudGhyb3BpYy5jbGF1ZGUucHJvdmlkZWRqcGFyYW1ldGVyc6F4H2NvbS5hbnRocm9waWMub3JpZ2luLWNvbmZpZGVuY2VndW5rbm93bmtkZXNjcmlwdGlvbnhmQ2xhdWRlIHByb3ZpZGVkIHRoaXMgZmlsZSBhdCB0aGUgcmVxdWVzdCBvZiBhIHVzZXIgYW5kIG1heSBoYXZlIGNyZWF0ZWQgb3IgbW9kaWZpZWQgdGhlIGZpbGUgY29udGVudHMubXNvZnR3YXJlQWdlbnShZG5hbWVmQ2xhdWRlcmFsbEFjdGlvbnNJbmNsdWRlZPUAAADIanVtYgAAAEBqdW1kY2JvcgARABCAAACqADibcRNjMnBhLmhhc2guZGF0YQAAAAAYYzJzaBSNK85vE0/2xEOtYDOHAKMAAACAY2JvcqVjYWxnZnNoYTI1NmNwYWRNAAAAAAAAAAAAAAAAAGRoYXNoWCDUwZD5skLsRhemeF3JMzeBvn9sjloZyNhhSIwJZoMAWWRuYW1lbmp1bWJmIG1hbmlmZXN0amV4Y2x1c2lvbnOBomVzdGFydBiaZmxlbmd0aBkeBAAAAj5qdW1iAAAAJ2p1bWRjMmNsABEAEIAAAKoAOJtxA2MycGEuY2xhaW0udjIAAAACD2Nib3KlY2FsZ2ZzaGEyNTZpc2lnbmF0dXJleE1zZWxmI2p1bWJmPS9jMnBhL3VybjpjMnBhOjQ4YmQ4OTFiLWFmYTYtNDM2OS04ZmQyLTM4OTM5ZDQzODcyYS9jMnBhLnNpZ25hdHVyZWppbnN0YW5jZUlEeCx4bXA6aWlkOmY1ODYxY2U2LTM3ZDAtNDhmOC05MzAwLTQwZDUwMTBjMWQ3OXJjcmVhdGVkX2Fzc2VydGlvbnODomN1cmx4LXNlbGYjanVtYmY9YzJwYS5hc3NlcnRpb25zL2MycGEuaW5ncmVkaWVudC52M2RoYXNoWCBnDQKO3o7vPEgoGD62gyzqc+asWPyNDoOnBueSUdXqtqJjdXJseCpzZWxmI2p1bWJmPWMycGEuYXNzZXJ0aW9ucy9jMnBhLmFjdGlvbnMudjJkaGFzaFggNMAWI/6I9k14Gjwm5QY9Q/7bT0vnv2vTJwZZXHnRaa2iY3VybHgpc2VsZiNqdW1iZj1jMnBhLmFzc2VydGlvbnMvYzJwYS5oYXNoLmRhdGFkaGFzaFggb9mnahlY1MkW7KaX6ays90YhYR+SKOkP2MQk7r+EpTh0Y2xhaW1fZ2VuZXJhdG9yX2luZm+jZG5hbWVvQW50aHJvcGljIEZpbGVzZ3ZlcnNpb25lMS4wLjBrc3BlY1ZlcnNpb25lMi40LjAAABA4anVtYgAAAChqdW1kYzJjcwARABCAAACqADibcQNjMnBhLnNpZ25hdHVyZQAAABAIY2JvctKEWQISogEmGCFZAgowggIGMIIBjaADAgECAhRA5aAK7sI50L64g/oGQgU9Z1UTADAKBggqhkjOPQQDAzBJMRcwFQYDVQQKEw5BbnRocm9waWMsIFBCQzEuMCwGA1UEAxMlQW50aHJvcGljIENvbnRlbnQgQ3JlZGVudGlhbHMgUm9vdCBDQTAeFw0yNjA4MDcxODQzNTZaFw0yODA4MDYxOTQzNTZaMEQxFzAVBgNVBAoTDkFudGhyb3BpYywgUEJDMSkwJwYDVQQDEyBBbnRocm9waWMgQ2xhdWRlIENvbnRlbnQgU2lnbmluZzBZMBMGByqGSM49AgEGCCqGSM49AwEHA0IABJh6CmvLUBgFFNU0vUKlOVtE6djd17L5SuwX0LemFisBM3dkd/3cyjxFA3Qo5S46fX0/ihY0VZ7mfb9KF703t5OjWDBWMA4GA1UdDwEB/wQEAwIHgDAVBgNVHSUEDjAMBgorBgEEAYPoXgIBMAwGA1UdEwEB/wQCMAAwHwYDVR0jBBgwFoAUzlHiBIFOZFsj+OPEz5o+nMHXXMIwCgYIKoZIzj0EAwMDZwAwZAIwMXMdFJ4BetLLVY7ORuE9noqbbAZOZn/aArXyTwFAZfKrPzxF2vPoJNf1+UCdg1XGAjBwX1zd9WGqYkqmL5SFqw1QySjr1zJfpJM9+1rdDwSPLMOPOjKuiXjoU/pUUeG9RwmhY3BhZFkNngAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPZYQLUpVNmzPYbBh1z4o6gTcznHUrcwIgeYSUXbkXwvWd0s1HwOlrJSNgJzDpeaR+B0MRcTT+MJlXJTQnCs+VEUR2A=</c2pa:manifest></metadata>
+<rect width="1680" height="1188" fill="#fff"/>
+<rect x="20" y="20" width="1640" height="1148" fill="none" stroke="#000" stroke-width="2"/>
+<rect x="40" y="40" width="1600" height="1108" fill="none" stroke="#000" stroke-width="1.4"/>
+<text x="173.33333333333334" y="34" font-family="Arial, Helvetica, sans-serif" font-size="12" text-anchor="middle" font-weight="normal" font-style="normal" fill="#000">1</text>
+<text x="173.33333333333334" y="1162" font-family="Arial, Helvetica, sans-serif" font-size="12" text-anchor="middle" font-weight="normal" font-style="normal" fill="#000">1</text>
+<text x="440.0" y="34" font-family="Arial, Helvetica, sans-serif" font-size="12" text-anchor="middle" font-weight="normal" font-style="normal" fill="#000">2</text>
+<text x="440.0" y="1162" font-family="Arial, Helvetica, sans-serif" font-size="12" text-anchor="middle" font-weight="normal" font-style="normal" fill="#000">2</text>
+<line x1="306.6666666666667" y1="20" x2="306.6666666666667" y2="40" stroke="#000" stroke-width="1.2" stroke-linecap="square"/>
+<line x1="306.6666666666667" y1="1148" x2="306.6666666666667" y2="1168" stroke="#000" stroke-width="1.2" stroke-linecap="square"/>
+<text x="706.6666666666667" y="34" font-family="Arial, Helvetica, sans-serif" font-size="12" text-anchor="middle" font-weight="normal" font-style="normal" fill="#000">3</text>
+<text x="706.6666666666667" y="1162" font-family="Arial, Helvetica, sans-serif" font-size="12" text-anchor="middle" font-weight="normal" font-style="normal" fill="#000">3</text>
+<line x1="573.3333333333334" y1="20" x2="573.3333333333334" y2="40" stroke="#000" stroke-width="1.2" stroke-linecap="square"/>
+<line x1="573.3333333333334" y1="1148" x2="573.3333333333334" y2="1168" stroke="#000" stroke-width="1.2" stroke-linecap="square"/>
+<text x="973.3333333333334" y="34" font-family="Arial, Helvetica, sans-serif" font-size="12" text-anchor="middle" font-weight="normal" font-style="normal" fill="#000">4</text>
+<text x="973.3333333333334" y="1162" font-family="Arial, Helvetica, sans-serif" font-size="12" text-anchor="middle" font-weight="normal" font-style="normal" fill="#000">4</text>
+<line x1="840.0" y1="20" x2="840.0" y2="40" stroke="#000" stroke-width="1.2" stroke-linecap="square"/>
+<line x1="840.0" y1="1148" x2="840.0" y2="1168" stroke="#000" stroke-width="1.2" stroke-linecap="square"/>
+<text x="1240.0" y="34" font-family="Arial, Helvetica, sans-serif" font-size="12" text-anchor="middle" font-weight="normal" font-style="normal" fill="#000">5</text>
+<text x="1240.0" y="1162" font-family="Arial, Helvetica, sans-serif" font-size="12" text-anchor="middle" font-weight="normal" font-style="normal" fill="#000">5</text>
+<line x1="1106.6666666666667" y1="20" x2="1106.6666666666667" y2="40" stroke="#000" stroke-width="1.2" stroke-linecap="square"/>
+<line x1="1106.6666666666667" y1="1148" x2="1106.6666666666667" y2="1168" stroke="#000" stroke-width="1.2" stroke-linecap="square"/>
+<text x="1506.6666666666667" y="34" font-family="Arial, Helvetica, sans-serif" font-size="12" text-anchor="middle" font-weight="normal" font-style="normal" fill="#000">6</text>
+<text x="1506.6666666666667" y="1162" font-family="Arial, Helvetica, sans-serif" font-size="12" text-anchor="middle" font-weight="normal" font-style="normal" fill="#000">6</text>
+<line x1="1373.3333333333335" y1="20" x2="1373.3333333333335" y2="40" stroke="#000" stroke-width="1.2" stroke-linecap="square"/>
+<line x1="1373.3333333333335" y1="1148" x2="1373.3333333333335" y2="1168" stroke="#000" stroke-width="1.2" stroke-linecap="square"/>
+<text x="30" y="182.5" font-family="Arial, Helvetica, sans-serif" font-size="12" text-anchor="middle" font-weight="normal" font-style="normal" fill="#000">A</text>
+<text x="1650" y="182.5" font-family="Arial, Helvetica, sans-serif" font-size="12" text-anchor="middle" font-weight="normal" font-style="normal" fill="#000">A</text>
+<text x="30" y="459.5" font-family="Arial, Helvetica, sans-serif" font-size="12" text-anchor="middle" font-weight="normal" font-style="normal" fill="#000">B</text>
+<text x="1650" y="459.5" font-family="Arial, Helvetica, sans-serif" font-size="12" text-anchor="middle" font-weight="normal" font-style="normal" fill="#000">B</text>
+<line x1="20" y1="317.0" x2="40" y2="317.0" stroke="#000" stroke-width="1.2" stroke-linecap="square"/>
+<line x1="1640" y1="317.0" x2="1660" y2="317.0" stroke="#000" stroke-width="1.2" stroke-linecap="square"/>
+<text x="30" y="736.5" font-family="Arial, Helvetica, sans-serif" font-size="12" text-anchor="middle" font-weight="normal" font-style="normal" fill="#000">C</text>
+<text x="1650" y="736.5" font-family="Arial, Helvetica, sans-serif" font-size="12" text-anchor="middle" font-weight="normal" font-style="normal" fill="#000">C</text>
+<line x1="20" y1="594.0" x2="40" y2="594.0" stroke="#000" stroke-width="1.2" stroke-linecap="square"/>
+<line x1="1640" y1="594.0" x2="1660" y2="594.0" stroke="#000" stroke-width="1.2" stroke-linecap="square"/>
+<text x="30" y="1013.5" font-family="Arial, Helvetica, sans-serif" font-size="12" text-anchor="middle" font-weight="normal" font-style="normal" fill="#000">D</text>
+<text x="1650" y="1013.5" font-family="Arial, Helvetica, sans-serif" font-size="12" text-anchor="middle" font-weight="normal" font-style="normal" fill="#000">D</text>
+<line x1="20" y1="871.0" x2="40" y2="871.0" stroke="#000" stroke-width="1.2" stroke-linecap="square"/>
+<line x1="1640" y1="871.0" x2="1660" y2="871.0" stroke="#000" stroke-width="1.2" stroke-linecap="square"/>
+<rect x="640" y="230" width="270" height="660" fill="#fff" stroke="#000" stroke-width="2"/>
+<text x="640" y="206" font-family="Arial, Helvetica, sans-serif" font-size="15" text-anchor="start" font-weight="bold" font-style="normal" fill="#000">U1</text>
+<text x="640" y="223" font-family="Arial, Helvetica, sans-serif" font-size="12.5" text-anchor="start" font-weight="normal" font-style="normal" fill="#000">FRDM-MCXC444</text>
+<line x1="750" y1="230" x2="750" y2="200" stroke="#000" stroke-width="1.6" stroke-linecap="square"/>
+<text x="750" y="247" font-family="Arial, Helvetica, sans-serif" font-size="12.5" text-anchor="middle" font-weight="normal" font-style="normal" fill="#000">3V3</text>
+<text x="754" y="224" font-family="Arial, Helvetica, sans-serif" font-size="10" text-anchor="start" font-weight="normal" font-style="normal" fill="#000"></text>
+<line x1="865" y1="230" x2="865" y2="200" stroke="#000" stroke-width="1.6" stroke-linecap="square"/>
+<text x="865" y="247" font-family="Arial, Helvetica, sans-serif" font-size="12.5" text-anchor="middle" font-weight="normal" font-style="normal" fill="#000">USB</text>
+<text x="869" y="224" font-family="Arial, Helvetica, sans-serif" font-size="10" text-anchor="start" font-weight="normal" font-style="normal" fill="#000"></text>
+<line x1="775" y1="890" x2="775" y2="920" stroke="#000" stroke-width="1.6" stroke-linecap="square"/>
+<text x="775" y="882" font-family="Arial, Helvetica, sans-serif" font-size="12.5" text-anchor="middle" font-weight="normal" font-style="normal" fill="#000">GND</text>
+<text x="779" y="903" font-family="Arial, Helvetica, sans-serif" font-size="10" text-anchor="start" font-weight="normal" font-style="normal" fill="#000"></text>
+<line x1="640" y1="330" x2="610" y2="330" stroke="#000" stroke-width="1.6" stroke-linecap="square"/>
+<text x="647" y="334.5" font-family="Arial, Helvetica, sans-serif" font-size="12.5" text-anchor="start" font-weight="normal" font-style="normal" fill="#000">PTB0 / A0 (ADC0_SE8)</text>
+<text x="636" y="326" font-family="Arial, Helvetica, sans-serif" font-size="10" text-anchor="end" font-weight="normal" font-style="normal" fill="#000">J4-2</text>
+<line x1="640" y1="560" x2="610" y2="560" stroke="#000" stroke-width="1.6" stroke-linecap="square"/>
+<text x="647" y="564.5" font-family="Arial, Helvetica, sans-serif" font-size="12.5" text-anchor="start" font-weight="normal" font-style="normal" fill="#000">PTA12 / D3</text>
+<text x="636" y="556" font-family="Arial, Helvetica, sans-serif" font-size="10" text-anchor="end" font-weight="normal" font-style="normal" fill="#000">J1-8</text>
+<line x1="640" y1="790" x2="610" y2="790" stroke="#000" stroke-width="1.6" stroke-linecap="square"/>
+<text x="647" y="794.5" font-family="Arial, Helvetica, sans-serif" font-size="12.5" text-anchor="start" font-weight="normal" font-style="normal" fill="#000">PTA13 / D8</text>
+<text x="636" y="786" font-family="Arial, Helvetica, sans-serif" font-size="10" text-anchor="end" font-weight="normal" font-style="normal" fill="#000">J2-2</text>
+<line x1="910" y1="290" x2="940" y2="290" stroke="#000" stroke-width="1.6" stroke-linecap="square"/>
+<text x="903" y="294.5" font-family="Arial, Helvetica, sans-serif" font-size="12.5" text-anchor="end" font-weight="normal" font-style="normal" fill="#000">PTE22 / UART2_TX</text>
+<text x="914" y="286" font-family="Arial, Helvetica, sans-serif" font-size="10" text-anchor="start" font-weight="normal" font-style="normal" fill="#000">J4-5</text>
+<line x1="910" y1="340" x2="940" y2="340" stroke="#000" stroke-width="1.6" stroke-linecap="square"/>
+<text x="903" y="344.5" font-family="Arial, Helvetica, sans-serif" font-size="12.5" text-anchor="end" font-weight="normal" font-style="normal" fill="#000">PTE23 / UART2_RX</text>
+<text x="914" y="336" font-family="Arial, Helvetica, sans-serif" font-size="10" text-anchor="start" font-weight="normal" font-style="normal" fill="#000">J4-7</text>
+<line x1="910" y1="470" x2="940" y2="470" stroke="#000" stroke-width="1.6" stroke-linecap="square"/>
+<text x="903" y="474.5" font-family="Arial, Helvetica, sans-serif" font-size="12.5" text-anchor="end" font-weight="normal" font-style="normal" fill="#000">PTA5 / D5 (TPM0_CH2)</text>
+<text x="914" y="466" font-family="Arial, Helvetica, sans-serif" font-size="10" text-anchor="start" font-weight="normal" font-style="normal" fill="#000">J1-12</text>
+<line x1="910" y1="520" x2="940" y2="520" stroke="#000" stroke-width="1.6" stroke-linecap="square"/>
+<text x="903" y="524.5" font-family="Arial, Helvetica, sans-serif" font-size="12.5" text-anchor="end" font-weight="normal" font-style="normal" fill="#000">PTE30 / D7 (TPM0_CH3)</text>
+<text x="914" y="516" font-family="Arial, Helvetica, sans-serif" font-size="10" text-anchor="start" font-weight="normal" font-style="normal" fill="#000">J1-16</text>
+<line x1="910" y1="570" x2="940" y2="570" stroke="#000" stroke-width="1.6" stroke-linecap="square"/>
+<text x="903" y="574.5" font-family="Arial, Helvetica, sans-serif" font-size="12.5" text-anchor="end" font-weight="normal" font-style="normal" fill="#000">PTB1 / A1</text>
+<text x="914" y="566" font-family="Arial, Helvetica, sans-serif" font-size="10" text-anchor="start" font-weight="normal" font-style="normal" fill="#000">J4-4</text>
+<line x1="910" y1="760" x2="940" y2="760" stroke="#000" stroke-width="1.6" stroke-linecap="square"/>
+<text x="903" y="764.5" font-family="Arial, Helvetica, sans-serif" font-size="12.5" text-anchor="end" font-weight="normal" font-style="normal" fill="#000">PTB2 / A2 (TPM2_CH0)</text>
+<text x="914" y="756" font-family="Arial, Helvetica, sans-serif" font-size="10" text-anchor="start" font-weight="normal" font-style="normal" fill="#000">J4-6</text>
+<line x1="750" y1="200" x2="750" y2="186" stroke="#000" stroke-width="2" stroke-linecap="square"/>
+<line x1="736" y1="186" x2="764" y2="186" stroke="#000" stroke-width="3" stroke-linecap="square"/>
+<text x="750" y="180" font-family="Arial, Helvetica, sans-serif" font-size="12" text-anchor="middle" font-weight="bold" font-style="normal" fill="#000">MCX_3V3</text>
+<line x1="865" y1="200" x2="865" y2="190" stroke="#000" stroke-width="2" stroke-linecap="square"/>
+<polygon points="785.0,190 945.0,190 945.0,168 865,158 785.0,168" fill="#fff" stroke="#000" stroke-width="1.6"/>
+<text x="865" y="183.5" font-family="Arial, Helvetica, sans-serif" font-size="11.5" text-anchor="middle" font-weight="bold" font-style="normal" fill="#000">LAPTOP USB (OpenSDA)</text>
+<line x1="775" y1="920" x2="775" y2="934" stroke="#000" stroke-width="2" stroke-linecap="square"/>
+<line x1="761" y1="934" x2="789" y2="934" stroke="#000" stroke-width="2.4" stroke-linecap="square"/>
+<line x1="766" y1="940" x2="784" y2="940" stroke="#000" stroke-width="2.4" stroke-linecap="square"/>
+<line x1="771" y1="946" x2="779" y2="946" stroke="#000" stroke-width="2.4" stroke-linecap="square"/>
+<rect x="680" y="820" width="160" height="40" fill="#fff" stroke="#000" stroke-width="1.2" stroke-dasharray="5 3"/>
+<text x="760" y="836" font-family="Arial, Helvetica, sans-serif" font-size="11" text-anchor="middle" font-weight="normal" font-style="normal" fill="#000">DS1: 4-digit segment LCD</text>
+<text x="760" y="851" font-family="Arial, Helvetica, sans-serif" font-size="11" text-anchor="middle" font-weight="normal" font-style="italic" fill="#000">on board, no wiring (JP7 on)</text>
+<rect x="250" y="240" width="210" height="160" fill="#fff" stroke="#000" stroke-width="2"/>
+<text x="250" y="216" font-family="Arial, Helvetica, sans-serif" font-size="15" text-anchor="start" font-weight="bold" font-style="normal" fill="#000">M1</text>
+<text x="250" y="233" font-family="Arial, Helvetica, sans-serif" font-size="12.5" text-anchor="start" font-weight="normal" font-style="normal" fill="#000">Joystick (KY-023)</text>
+<line x1="435" y1="240" x2="435" y2="210" stroke="#000" stroke-width="1.6" stroke-linecap="square"/>
+<text x="435" y="257" font-family="Arial, Helvetica, sans-serif" font-size="12.5" text-anchor="middle" font-weight="normal" font-style="normal" fill="#000">+5V</text>
+<text x="439" y="234" font-family="Arial, Helvetica, sans-serif" font-size="10" text-anchor="start" font-weight="normal" font-style="normal" fill="#000">2</text>
+<line x1="300" y1="400" x2="300" y2="430" stroke="#000" stroke-width="1.6" stroke-linecap="square"/>
+<text x="300" y="392" font-family="Arial, Helvetica, sans-serif" font-size="12.5" text-anchor="middle" font-weight="normal" font-style="normal" fill="#000">GND</text>
+<text x="304" y="413" font-family="Arial, Helvetica, sans-serif" font-size="10" text-anchor="start" font-weight="normal" font-style="normal" fill="#000">1</text>
+<line x1="460" y1="300" x2="490" y2="300" stroke="#000" stroke-width="1.6" stroke-linecap="square"/>
+<text x="453" y="304.5" font-family="Arial, Helvetica, sans-serif" font-size="12.5" text-anchor="end" font-weight="normal" font-style="normal" fill="#000">VRx</text>
+<text x="464" y="296" font-family="Arial, Helvetica, sans-serif" font-size="10" text-anchor="start" font-weight="normal" font-style="normal" fill="#000">3</text>
+<line x1="484" y1="294" x2="496" y2="306" stroke="#000" stroke-width="2" stroke-linecap="square"/>
+<line x1="484" y1="306" x2="496" y2="294" stroke="#000" stroke-width="2" stroke-linecap="square"/>
+<line x1="460" y1="330" x2="490" y2="330" stroke="#000" stroke-width="1.6" stroke-linecap="square"/>
+<text x="453" y="334.5" font-family="Arial, Helvetica, sans-serif" font-size="12.5" text-anchor="end" font-weight="normal" font-style="normal" fill="#000">VRy</text>
+<text x="464" y="326" font-family="Arial, Helvetica, sans-serif" font-size="10" text-anchor="start" font-weight="normal" font-style="normal" fill="#000">4</text>
+<line x1="460" y1="360" x2="490" y2="360" stroke="#000" stroke-width="1.6" stroke-linecap="square"/>
+<text x="453" y="364.5" font-family="Arial, Helvetica, sans-serif" font-size="12.5" text-anchor="end" font-weight="normal" font-style="normal" fill="#000">SW</text>
+<text x="464" y="356" font-family="Arial, Helvetica, sans-serif" font-size="10" text-anchor="start" font-weight="normal" font-style="normal" fill="#000">5</text>
+<line x1="484" y1="354" x2="496" y2="366" stroke="#000" stroke-width="2" stroke-linecap="square"/>
+<line x1="484" y1="366" x2="496" y2="354" stroke="#000" stroke-width="2" stroke-linecap="square"/>
+<line x1="435" y1="210" x2="435" y2="196" stroke="#000" stroke-width="2" stroke-linecap="square"/>
+<line x1="421" y1="196" x2="449" y2="196" stroke="#000" stroke-width="3" stroke-linecap="square"/>
+<text x="435" y="190" font-family="Arial, Helvetica, sans-serif" font-size="12" text-anchor="middle" font-weight="bold" font-style="normal" fill="#000">MCX_3V3</text>
+<line x1="300" y1="430" x2="300" y2="444" stroke="#000" stroke-width="2" stroke-linecap="square"/>
+<line x1="286" y1="444" x2="314" y2="444" stroke="#000" stroke-width="2.4" stroke-linecap="square"/>
+<line x1="291" y1="450" x2="309" y2="450" stroke="#000" stroke-width="2.4" stroke-linecap="square"/>
+<line x1="296" y1="456" x2="304" y2="456" stroke="#000" stroke-width="2.4" stroke-linecap="square"/>
+<rect x="250" y="475" width="210" height="135" fill="#fff" stroke="#000" stroke-width="2"/>
+<text x="250" y="451" font-family="Arial, Helvetica, sans-serif" font-size="15" text-anchor="start" font-weight="bold" font-style="normal" fill="#000">M2</text>
+<text x="250" y="468" font-family="Arial, Helvetica, sans-serif" font-size="12.5" text-anchor="start" font-weight="normal" font-style="normal" fill="#000">Big sound sensor (KY-037)</text>
+<line x1="435" y1="475" x2="435" y2="445" stroke="#000" stroke-width="1.6" stroke-linecap="square"/>
+<text x="435" y="492" font-family="Arial, Helvetica, sans-serif" font-size="12.5" text-anchor="middle" font-weight="normal" font-style="normal" fill="#000">+</text>
+<text x="439" y="469" font-family="Arial, Helvetica, sans-serif" font-size="10" text-anchor="start" font-weight="normal" font-style="normal" fill="#000">3</text>
+<line x1="300" y1="610" x2="300" y2="640" stroke="#000" stroke-width="1.6" stroke-linecap="square"/>
+<text x="300" y="602" font-family="Arial, Helvetica, sans-serif" font-size="12.5" text-anchor="middle" font-weight="normal" font-style="normal" fill="#000">G</text>
+<text x="304" y="623" font-family="Arial, Helvetica, sans-serif" font-size="10" text-anchor="start" font-weight="normal" font-style="normal" fill="#000">2</text>
+<line x1="460" y1="530" x2="490" y2="530" stroke="#000" stroke-width="1.6" stroke-linecap="square"/>
+<text x="453" y="534.5" font-family="Arial, Helvetica, sans-serif" font-size="12.5" text-anchor="end" font-weight="normal" font-style="normal" fill="#000">AO</text>
+<text x="464" y="526" font-family="Arial, Helvetica, sans-serif" font-size="10" text-anchor="start" font-weight="normal" font-style="normal" fill="#000">1</text>
+<line x1="484" y1="524" x2="496" y2="536" stroke="#000" stroke-width="2" stroke-linecap="square"/>
+<line x1="484" y1="536" x2="496" y2="524" stroke="#000" stroke-width="2" stroke-linecap="square"/>
+<line x1="460" y1="560" x2="490" y2="560" stroke="#000" stroke-width="1.6" stroke-linecap="square"/>
+<text x="453" y="564.5" font-family="Arial, Helvetica, sans-serif" font-size="12.5" text-anchor="end" font-weight="normal" font-style="normal" fill="#000">DO</text>
+<text x="464" y="556" font-family="Arial, Helvetica, sans-serif" font-size="10" text-anchor="start" font-weight="normal" font-style="normal" fill="#000">4</text>
+<line x1="435" y1="445" x2="435" y2="431" stroke="#000" stroke-width="2" stroke-linecap="square"/>
+<line x1="421" y1="431" x2="449" y2="431" stroke="#000" stroke-width="3" stroke-linecap="square"/>
+<text x="435" y="425" font-family="Arial, Helvetica, sans-serif" font-size="12" text-anchor="middle" font-weight="bold" font-style="normal" fill="#000">MCX_3V3</text>
+<line x1="300" y1="640" x2="300" y2="654" stroke="#000" stroke-width="2" stroke-linecap="square"/>
+<line x1="286" y1="654" x2="314" y2="654" stroke="#000" stroke-width="2.4" stroke-linecap="square"/>
+<line x1="291" y1="660" x2="309" y2="660" stroke="#000" stroke-width="2.4" stroke-linecap="square"/>
+<line x1="296" y1="666" x2="304" y2="666" stroke="#000" stroke-width="2.4" stroke-linecap="square"/>
+<rect x="250" y="750" width="210" height="100" fill="#fff" stroke="#000" stroke-width="2"/>
+<text x="250" y="726" font-family="Arial, Helvetica, sans-serif" font-size="15" text-anchor="start" font-weight="bold" font-style="normal" fill="#000">M3</text>
+<text x="250" y="743" font-family="Arial, Helvetica, sans-serif" font-size="12.5" text-anchor="start" font-weight="normal" font-style="normal" fill="#000">Button (KY-004)</text>
+<line x1="435" y1="750" x2="435" y2="720" stroke="#000" stroke-width="1.6" stroke-linecap="square"/>
+<text x="435" y="767" font-family="Arial, Helvetica, sans-serif" font-size="12.5" text-anchor="middle" font-weight="normal" font-style="normal" fill="#000">+</text>
+<text x="439" y="744" font-family="Arial, Helvetica, sans-serif" font-size="10" text-anchor="start" font-weight="normal" font-style="normal" fill="#000">2</text>
+<line x1="300" y1="850" x2="300" y2="880" stroke="#000" stroke-width="1.6" stroke-linecap="square"/>
+<text x="300" y="842" font-family="Arial, Helvetica, sans-serif" font-size="12.5" text-anchor="middle" font-weight="normal" font-style="normal" fill="#000">-</text>
+<text x="304" y="863" font-family="Arial, Helvetica, sans-serif" font-size="10" text-anchor="start" font-weight="normal" font-style="normal" fill="#000">3</text>
+<line x1="460" y1="790" x2="490" y2="790" stroke="#000" stroke-width="1.6" stroke-linecap="square"/>
+<text x="453" y="794.5" font-family="Arial, Helvetica, sans-serif" font-size="12.5" text-anchor="end" font-weight="normal" font-style="normal" fill="#000">S</text>
+<text x="464" y="786" font-family="Arial, Helvetica, sans-serif" font-size="10" text-anchor="start" font-weight="normal" font-style="normal" fill="#000">1</text>
+<line x1="435" y1="720" x2="435" y2="706" stroke="#000" stroke-width="2" stroke-linecap="square"/>
+<line x1="421" y1="706" x2="449" y2="706" stroke="#000" stroke-width="3" stroke-linecap="square"/>
+<text x="435" y="700" font-family="Arial, Helvetica, sans-serif" font-size="12" text-anchor="middle" font-weight="bold" font-style="normal" fill="#000">MCX_3V3</text>
+<line x1="300" y1="880" x2="300" y2="894" stroke="#000" stroke-width="2" stroke-linecap="square"/>
+<line x1="286" y1="894" x2="314" y2="894" stroke="#000" stroke-width="2.4" stroke-linecap="square"/>
+<line x1="291" y1="900" x2="309" y2="900" stroke="#000" stroke-width="2.4" stroke-linecap="square"/>
+<line x1="296" y1="906" x2="304" y2="906" stroke="#000" stroke-width="2.4" stroke-linecap="square"/>
+<polyline points="490,330 610,330" fill="none" stroke="#000" stroke-width="2.2" stroke-linejoin="miter"/>
+<text x="512" y="325" font-family="Arial, Helvetica, sans-serif" font-size="11.5" text-anchor="start" font-weight="bold" font-style="normal" fill="#000">JOY_Y</text>
+<polyline points="490,560 610,560" fill="none" stroke="#000" stroke-width="2.2" stroke-linejoin="miter"/>
+<text x="512" y="555" font-family="Arial, Helvetica, sans-serif" font-size="11.5" text-anchor="start" font-weight="bold" font-style="normal" fill="#000">SOUND_DO</text>
+<polyline points="490,790 610,790" fill="none" stroke="#000" stroke-width="2.2" stroke-linejoin="miter"/>
+<text x="512" y="785" font-family="Arial, Helvetica, sans-serif" font-size="11.5" text-anchor="start" font-weight="bold" font-style="normal" fill="#000">BUTTON</text>
+<rect x="1080" y="450" width="150" height="170" fill="#fff" stroke="#000" stroke-width="2"/>
+<text x="1080" y="426" font-family="Arial, Helvetica, sans-serif" font-size="15" text-anchor="start" font-weight="bold" font-style="normal" fill="#000">M4</text>
+<text x="1080" y="443" font-family="Arial, Helvetica, sans-serif" font-size="12.5" text-anchor="start" font-weight="normal" font-style="normal" fill="#000">RGB LED (KY-016)</text>
+<line x1="1080" y1="470" x2="1050" y2="470" stroke="#000" stroke-width="1.6" stroke-linecap="square"/>
+<text x="1087" y="474.5" font-family="Arial, Helvetica, sans-serif" font-size="12.5" text-anchor="start" font-weight="normal" font-style="normal" fill="#000">R</text>
+<text x="1076" y="466" font-family="Arial, Helvetica, sans-serif" font-size="10" text-anchor="end" font-weight="normal" font-style="normal" fill="#000">1</text>
+<line x1="1080" y1="520" x2="1050" y2="520" stroke="#000" stroke-width="1.6" stroke-linecap="square"/>
+<text x="1087" y="524.5" font-family="Arial, Helvetica, sans-serif" font-size="12.5" text-anchor="start" font-weight="normal" font-style="normal" fill="#000">G</text>
+<text x="1076" y="516" font-family="Arial, Helvetica, sans-serif" font-size="10" text-anchor="end" font-weight="normal" font-style="normal" fill="#000">2</text>
+<line x1="1080" y1="570" x2="1050" y2="570" stroke="#000" stroke-width="1.6" stroke-linecap="square"/>
+<text x="1087" y="574.5" font-family="Arial, Helvetica, sans-serif" font-size="12.5" text-anchor="start" font-weight="normal" font-style="normal" fill="#000">B</text>
+<text x="1076" y="566" font-family="Arial, Helvetica, sans-serif" font-size="10" text-anchor="end" font-weight="normal" font-style="normal" fill="#000">3</text>
+<line x1="1155" y1="620" x2="1155" y2="650" stroke="#000" stroke-width="1.6" stroke-linecap="square"/>
+<text x="1155" y="612" font-family="Arial, Helvetica, sans-serif" font-size="12.5" text-anchor="middle" font-weight="normal" font-style="normal" fill="#000">- (GND)</text>
+<text x="1159" y="633" font-family="Arial, Helvetica, sans-serif" font-size="10" text-anchor="start" font-weight="normal" font-style="normal" fill="#000">4</text>
+<line x1="1155" y1="650" x2="1155" y2="664" stroke="#000" stroke-width="2" stroke-linecap="square"/>
+<line x1="1141" y1="664" x2="1169" y2="664" stroke="#000" stroke-width="2.4" stroke-linecap="square"/>
+<line x1="1146" y1="670" x2="1164" y2="670" stroke="#000" stroke-width="2.4" stroke-linecap="square"/>
+<line x1="1151" y1="676" x2="1159" y2="676" stroke="#000" stroke-width="2.4" stroke-linecap="square"/>
+<rect x="1080" y="730" width="150" height="100" fill="#fff" stroke="#000" stroke-width="2"/>
+<text x="1080" y="706" font-family="Arial, Helvetica, sans-serif" font-size="15" text-anchor="start" font-weight="bold" font-style="normal" fill="#000">M5</text>
+<text x="1080" y="723" font-family="Arial, Helvetica, sans-serif" font-size="12.5" text-anchor="start" font-weight="normal" font-style="normal" fill="#000">Passive buzzer (KY-006)</text>
+<line x1="1080" y1="760" x2="1050" y2="760" stroke="#000" stroke-width="1.6" stroke-linecap="square"/>
+<text x="1087" y="764.5" font-family="Arial, Helvetica, sans-serif" font-size="12.5" text-anchor="start" font-weight="normal" font-style="normal" fill="#000">S</text>
+<text x="1076" y="756" font-family="Arial, Helvetica, sans-serif" font-size="10" text-anchor="end" font-weight="normal" font-style="normal" fill="#000">1</text>
+<line x1="1230" y1="760" x2="1260" y2="760" stroke="#000" stroke-width="1.6" stroke-linecap="square"/>
+<text x="1223" y="764.5" font-family="Arial, Helvetica, sans-serif" font-size="12.5" text-anchor="end" font-weight="normal" font-style="normal" fill="#000">+</text>
+<text x="1234" y="756" font-family="Arial, Helvetica, sans-serif" font-size="10" text-anchor="start" font-weight="normal" font-style="normal" fill="#000">2</text>
+<line x1="1254" y1="754" x2="1266" y2="766" stroke="#000" stroke-width="2" stroke-linecap="square"/>
+<line x1="1254" y1="766" x2="1266" y2="754" stroke="#000" stroke-width="2" stroke-linecap="square"/>
+<line x1="1155" y1="830" x2="1155" y2="860" stroke="#000" stroke-width="1.6" stroke-linecap="square"/>
+<text x="1155" y="822" font-family="Arial, Helvetica, sans-serif" font-size="12.5" text-anchor="middle" font-weight="normal" font-style="normal" fill="#000">-</text>
+<text x="1159" y="843" font-family="Arial, Helvetica, sans-serif" font-size="10" text-anchor="start" font-weight="normal" font-style="normal" fill="#000">3</text>
+<line x1="1155" y1="860" x2="1155" y2="874" stroke="#000" stroke-width="2" stroke-linecap="square"/>
+<line x1="1141" y1="874" x2="1169" y2="874" stroke="#000" stroke-width="2.4" stroke-linecap="square"/>
+<line x1="1146" y1="880" x2="1164" y2="880" stroke="#000" stroke-width="2.4" stroke-linecap="square"/>
+<line x1="1151" y1="886" x2="1159" y2="886" stroke="#000" stroke-width="2.4" stroke-linecap="square"/>
+<polyline points="940,470 1050,470" fill="none" stroke="#000" stroke-width="2.2" stroke-linejoin="miter"/>
+<text x="980" y="465" font-family="Arial, Helvetica, sans-serif" font-size="11.5" text-anchor="start" font-weight="bold" font-style="normal" fill="#000">LED_R</text>
+<polyline points="940,520 1050,520" fill="none" stroke="#000" stroke-width="2.2" stroke-linejoin="miter"/>
+<text x="980" y="515" font-family="Arial, Helvetica, sans-serif" font-size="11.5" text-anchor="start" font-weight="bold" font-style="normal" fill="#000">LED_G</text>
+<polyline points="940,570 1050,570" fill="none" stroke="#000" stroke-width="2.2" stroke-linejoin="miter"/>
+<text x="980" y="565" font-family="Arial, Helvetica, sans-serif" font-size="11.5" text-anchor="start" font-weight="bold" font-style="normal" fill="#000">LED_B</text>
+<polyline points="940,760 1050,760" fill="none" stroke="#000" stroke-width="2.2" stroke-linejoin="miter"/>
+<text x="980" y="755" font-family="Arial, Helvetica, sans-serif" font-size="11.5" text-anchor="start" font-weight="bold" font-style="normal" fill="#000">BUZZER</text>
+<rect x="1140" y="250" width="220" height="130" fill="#fff" stroke="#000" stroke-width="2"/>
+<text x="1140" y="226" font-family="Arial, Helvetica, sans-serif" font-size="15" text-anchor="start" font-weight="bold" font-style="normal" fill="#000">U2</text>
+<text x="1140" y="243" font-family="Arial, Helvetica, sans-serif" font-size="12.5" text-anchor="start" font-weight="normal" font-style="normal" fill="#000">LOLIN ESP32-S2 Mini</text>
+<line x1="1310" y1="250" x2="1310" y2="220" stroke="#000" stroke-width="1.6" stroke-linecap="square"/>
+<text x="1310" y="267" font-family="Arial, Helvetica, sans-serif" font-size="12.5" text-anchor="middle" font-weight="normal" font-style="normal" fill="#000">3V3</text>
+<text x="1314" y="244" font-family="Arial, Helvetica, sans-serif" font-size="10" text-anchor="start" font-weight="normal" font-style="normal" fill="#000"></text>
+<line x1="1250" y1="380" x2="1250" y2="410" stroke="#000" stroke-width="1.6" stroke-linecap="square"/>
+<text x="1250" y="372" font-family="Arial, Helvetica, sans-serif" font-size="12.5" text-anchor="middle" font-weight="normal" font-style="normal" fill="#000">GND</text>
+<text x="1254" y="393" font-family="Arial, Helvetica, sans-serif" font-size="10" text-anchor="start" font-weight="normal" font-style="normal" fill="#000"></text>
+<line x1="1325" y1="380" x2="1325" y2="410" stroke="#000" stroke-width="1.6" stroke-linecap="square"/>
+<text x="1325" y="372" font-family="Arial, Helvetica, sans-serif" font-size="12.5" text-anchor="middle" font-weight="normal" font-style="normal" fill="#000">USB-C</text>
+<text x="1329" y="393" font-family="Arial, Helvetica, sans-serif" font-size="10" text-anchor="start" font-weight="normal" font-style="normal" fill="#000"></text>
+<line x1="1140" y1="290" x2="1110" y2="290" stroke="#000" stroke-width="1.6" stroke-linecap="square"/>
+<text x="1147" y="294.5" font-family="Arial, Helvetica, sans-serif" font-size="12.5" text-anchor="start" font-weight="normal" font-style="normal" fill="#000">GPIO2 (RX)</text>
+<text x="1136" y="286" font-family="Arial, Helvetica, sans-serif" font-size="10" text-anchor="end" font-weight="normal" font-style="normal" fill="#000"></text>
+<line x1="1140" y1="340" x2="1110" y2="340" stroke="#000" stroke-width="1.6" stroke-linecap="square"/>
+<text x="1147" y="344.5" font-family="Arial, Helvetica, sans-serif" font-size="12.5" text-anchor="start" font-weight="normal" font-style="normal" fill="#000">GPIO1 (TX)</text>
+<text x="1136" y="336" font-family="Arial, Helvetica, sans-serif" font-size="10" text-anchor="end" font-weight="normal" font-style="normal" fill="#000"></text>
+<line x1="1360" y1="290" x2="1390" y2="290" stroke="#000" stroke-width="1.6" stroke-linecap="square"/>
+<text x="1353" y="294.5" font-family="Arial, Helvetica, sans-serif" font-size="12.5" text-anchor="end" font-weight="normal" font-style="normal" fill="#000">GPIO33 (SDA)</text>
+<text x="1364" y="286" font-family="Arial, Helvetica, sans-serif" font-size="10" text-anchor="start" font-weight="normal" font-style="normal" fill="#000"></text>
+<line x1="1360" y1="340" x2="1390" y2="340" stroke="#000" stroke-width="1.6" stroke-linecap="square"/>
+<text x="1353" y="344.5" font-family="Arial, Helvetica, sans-serif" font-size="12.5" text-anchor="end" font-weight="normal" font-style="normal" fill="#000">GPIO35 (SCL)</text>
+<text x="1364" y="336" font-family="Arial, Helvetica, sans-serif" font-size="10" text-anchor="start" font-weight="normal" font-style="normal" fill="#000"></text>
+<line x1="1310" y1="220" x2="1310" y2="206" stroke="#000" stroke-width="2" stroke-linecap="square"/>
+<line x1="1296" y1="206" x2="1324" y2="206" stroke="#000" stroke-width="3" stroke-linecap="square"/>
+<text x="1310" y="200" font-family="Arial, Helvetica, sans-serif" font-size="12" text-anchor="middle" font-weight="bold" font-style="normal" fill="#000">ESP_3V3</text>
+<line x1="1250" y1="410" x2="1250" y2="424" stroke="#000" stroke-width="2" stroke-linecap="square"/>
+<line x1="1236" y1="424" x2="1264" y2="424" stroke="#000" stroke-width="2.4" stroke-linecap="square"/>
+<line x1="1241" y1="430" x2="1259" y2="430" stroke="#000" stroke-width="2.4" stroke-linecap="square"/>
+<line x1="1246" y1="436" x2="1254" y2="436" stroke="#000" stroke-width="2.4" stroke-linecap="square"/>
+<line x1="1325" y1="410" x2="1325" y2="420" stroke="#000" stroke-width="2" stroke-linecap="square"/>
+<polygon points="1270.0,420 1380.0,420 1380.0,442 1325,452 1270.0,442" fill="#fff" stroke="#000" stroke-width="1.6"/>
+<text x="1325" y="435.5" font-family="Arial, Helvetica, sans-serif" font-size="11.5" text-anchor="middle" font-weight="bold" font-style="normal" fill="#000">LAPTOP USB</text>
+<polyline points="940,290 1110,290" fill="none" stroke="#000" stroke-width="2.2" stroke-linejoin="miter"/>
+<text x="980" y="285" font-family="Arial, Helvetica, sans-serif" font-size="11.5" text-anchor="start" font-weight="bold" font-style="normal" fill="#000">UART_MCX_TX</text>
+<polyline points="940,340 1110,340" fill="none" stroke="#000" stroke-width="2.2" stroke-linejoin="miter"/>
+<text x="980" y="335" font-family="Arial, Helvetica, sans-serif" font-size="11.5" text-anchor="start" font-weight="bold" font-style="normal" fill="#000">UART_MCX_RX</text>
+<text x="1040" y="265" font-family="Arial, Helvetica, sans-serif" font-size="11" text-anchor="middle" font-weight="normal" font-style="italic" fill="#000">9600 baud, 8N1, 5-byte packets</text>
+<rect x="1440" y="250" width="150" height="150" fill="#fff" stroke="#000" stroke-width="2"/>
+<text x="1440" y="226" font-family="Arial, Helvetica, sans-serif" font-size="15" text-anchor="start" font-weight="bold" font-style="normal" fill="#000">U3</text>
+<text x="1440" y="243" font-family="Arial, Helvetica, sans-serif" font-size="12.5" text-anchor="start" font-weight="normal" font-style="normal" fill="#000">MPU-6050 (GY-521)</text>
+<line x1="1565" y1="250" x2="1565" y2="220" stroke="#000" stroke-width="1.6" stroke-linecap="square"/>
+<text x="1565" y="267" font-family="Arial, Helvetica, sans-serif" font-size="12.5" text-anchor="middle" font-weight="normal" font-style="normal" fill="#000">VCC</text>
+<text x="1569" y="244" font-family="Arial, Helvetica, sans-serif" font-size="10" text-anchor="start" font-weight="normal" font-style="normal" fill="#000">1</text>
+<line x1="1515" y1="400" x2="1515" y2="430" stroke="#000" stroke-width="1.6" stroke-linecap="square"/>
+<text x="1515" y="392" font-family="Arial, Helvetica, sans-serif" font-size="12.5" text-anchor="middle" font-weight="normal" font-style="normal" fill="#000">GND</text>
+<text x="1519" y="413" font-family="Arial, Helvetica, sans-serif" font-size="10" text-anchor="start" font-weight="normal" font-style="normal" fill="#000">2</text>
+<line x1="1440" y1="290" x2="1410" y2="290" stroke="#000" stroke-width="1.6" stroke-linecap="square"/>
+<text x="1447" y="294.5" font-family="Arial, Helvetica, sans-serif" font-size="12.5" text-anchor="start" font-weight="normal" font-style="normal" fill="#000">SDA</text>
+<text x="1436" y="286" font-family="Arial, Helvetica, sans-serif" font-size="10" text-anchor="end" font-weight="normal" font-style="normal" fill="#000">4</text>
+<line x1="1440" y1="340" x2="1410" y2="340" stroke="#000" stroke-width="1.6" stroke-linecap="square"/>
+<text x="1447" y="344.5" font-family="Arial, Helvetica, sans-serif" font-size="12.5" text-anchor="start" font-weight="normal" font-style="normal" fill="#000">SCL</text>
+<text x="1436" y="336" font-family="Arial, Helvetica, sans-serif" font-size="10" text-anchor="end" font-weight="normal" font-style="normal" fill="#000">3</text>
+<line x1="1590" y1="305" x2="1620" y2="305" stroke="#000" stroke-width="1.6" stroke-linecap="square"/>
+<text x="1583" y="309.5" font-family="Arial, Helvetica, sans-serif" font-size="12.5" text-anchor="end" font-weight="normal" font-style="normal" fill="#000">XDA</text>
+<text x="1594" y="301" font-family="Arial, Helvetica, sans-serif" font-size="10" text-anchor="start" font-weight="normal" font-style="normal" fill="#000">5</text>
+<line x1="1614" y1="299" x2="1626" y2="311" stroke="#000" stroke-width="2" stroke-linecap="square"/>
+<line x1="1614" y1="311" x2="1626" y2="299" stroke="#000" stroke-width="2" stroke-linecap="square"/>
+<line x1="1590" y1="330" x2="1620" y2="330" stroke="#000" stroke-width="1.6" stroke-linecap="square"/>
+<text x="1583" y="334.5" font-family="Arial, Helvetica, sans-serif" font-size="12.5" text-anchor="end" font-weight="normal" font-style="normal" fill="#000">XCL</text>
+<text x="1594" y="326" font-family="Arial, Helvetica, sans-serif" font-size="10" text-anchor="start" font-weight="normal" font-style="normal" fill="#000">6</text>
+<line x1="1614" y1="324" x2="1626" y2="336" stroke="#000" stroke-width="2" stroke-linecap="square"/>
+<line x1="1614" y1="336" x2="1626" y2="324" stroke="#000" stroke-width="2" stroke-linecap="square"/>
+<line x1="1590" y1="355" x2="1620" y2="355" stroke="#000" stroke-width="1.6" stroke-linecap="square"/>
+<text x="1583" y="359.5" font-family="Arial, Helvetica, sans-serif" font-size="12.5" text-anchor="end" font-weight="normal" font-style="normal" fill="#000">AD0</text>
+<text x="1594" y="351" font-family="Arial, Helvetica, sans-serif" font-size="10" text-anchor="start" font-weight="normal" font-style="normal" fill="#000">7</text>
+<line x1="1614" y1="349" x2="1626" y2="361" stroke="#000" stroke-width="2" stroke-linecap="square"/>
+<line x1="1614" y1="361" x2="1626" y2="349" stroke="#000" stroke-width="2" stroke-linecap="square"/>
+<line x1="1590" y1="380" x2="1620" y2="380" stroke="#000" stroke-width="1.6" stroke-linecap="square"/>
+<text x="1583" y="384.5" font-family="Arial, Helvetica, sans-serif" font-size="12.5" text-anchor="end" font-weight="normal" font-style="normal" fill="#000">INT</text>
+<text x="1594" y="376" font-family="Arial, Helvetica, sans-serif" font-size="10" text-anchor="start" font-weight="normal" font-style="normal" fill="#000">8</text>
+<line x1="1614" y1="374" x2="1626" y2="386" stroke="#000" stroke-width="2" stroke-linecap="square"/>
+<line x1="1614" y1="386" x2="1626" y2="374" stroke="#000" stroke-width="2" stroke-linecap="square"/>
+<line x1="1565" y1="220" x2="1565" y2="206" stroke="#000" stroke-width="2" stroke-linecap="square"/>
+<line x1="1551" y1="206" x2="1579" y2="206" stroke="#000" stroke-width="3" stroke-linecap="square"/>
+<text x="1565" y="200" font-family="Arial, Helvetica, sans-serif" font-size="12" text-anchor="middle" font-weight="bold" font-style="normal" fill="#000">ESP_3V3</text>
+<line x1="1515" y1="430" x2="1515" y2="444" stroke="#000" stroke-width="2" stroke-linecap="square"/>
+<line x1="1501" y1="444" x2="1529" y2="444" stroke="#000" stroke-width="2.4" stroke-linecap="square"/>
+<line x1="1506" y1="450" x2="1524" y2="450" stroke="#000" stroke-width="2.4" stroke-linecap="square"/>
+<line x1="1511" y1="456" x2="1519" y2="456" stroke="#000" stroke-width="2.4" stroke-linecap="square"/>
+<polyline points="1390,290 1410,290" fill="none" stroke="#000" stroke-width="2.2" stroke-linejoin="miter"/>
+<polyline points="1390,340 1410,340" fill="none" stroke="#000" stroke-width="2.2" stroke-linejoin="miter"/>
+<text x="1400" y="262" font-family="Arial, Helvetica, sans-serif" font-size="11" text-anchor="middle" font-weight="bold" font-style="normal" fill="#000">I2C</text>
+<text x="56" y="950" font-family="Arial, Helvetica, sans-serif" font-size="14" text-anchor="start" font-weight="bold" font-style="normal" fill="#000">NOTES</text>
+<text x="56" y="974" font-family="Arial, Helvetica, sans-serif" font-size="12" text-anchor="start" font-weight="normal" font-style="normal" fill="#000">1. Power every kit module from 3.3 V (MCX_3V3 = FRDM 3V3 pin, ESP_3V3 = S2 Mini 3V3 pin). Do not join the two 3V3 rails.</text>
+<text x="56" y="995" font-family="Arial, Helvetica, sans-serif" font-size="12" text-anchor="start" font-weight="normal" font-style="normal" fill="#000">2. All GND symbols are one net: run one wire from a FRDM GND pin to an S2 Mini GND pin (common ground for the UART).</text>
+<text x="56" y="1016" font-family="Arial, Helvetica, sans-serif" font-size="12" text-anchor="start" font-weight="normal" font-style="normal" fill="#000">3. M1 pin "+5V" is only the module's silkscreen name: wire it to 3V3 so the joystick output stays inside the ADC range.</text>
+<text x="56" y="1037" font-family="Arial, Helvetica, sans-serif" font-size="12" text-anchor="start" font-weight="normal" font-style="normal" fill="#000">4. UART is crossed: MCX TX (PTE22) -&gt; ESP RX (GPIO2), MCX RX (PTE23) &lt;- ESP TX (GPIO1). Both sides are 3.3 V logic.</text>
+<text x="56" y="1058" font-family="Arial, Helvetica, sans-serif" font-size="12" text-anchor="start" font-weight="normal" font-style="normal" fill="#000">5. Small labels on U1 pins are FRDM header positions (e.g. J4-2). No external resistors: the kit modules carry their own.</text>
+<text x="56" y="1079" font-family="Arial, Helvetica, sans-serif" font-size="12" text-anchor="start" font-weight="normal" font-style="normal" fill="#000">6. X = not connected. MPU-6050 AD0 left open (I2C address 0x68). GY-521 has on-board I2C pull-ups.</text>
+<text x="56" y="1100" font-family="Arial, Helvetica, sans-serif" font-size="12" text-anchor="start" font-weight="normal" font-style="normal" fill="#000">7. Both USB ports go to the laptop: OpenSDA powers and flashes the FRDM; the S2 Mini USB-C powers it and acts as the keyboard.</text>
+<rect x="1180" y="1010" width="460" height="138" fill="#fff" stroke="#000" stroke-width="2"/>
+<line x1="1180" y1="1046" x2="1640" y2="1046" stroke="#000" stroke-width="1.2" stroke-linecap="square"/>
+<line x1="1180" y1="1096" x2="1640" y2="1096" stroke="#000" stroke-width="1.2" stroke-linecap="square"/>
+<line x1="1180" y1="1122" x2="1640" y2="1122" stroke="#000" stroke-width="1.2" stroke-linecap="square"/>
+<line x1="1410.0" y1="1096" x2="1410.0" y2="1148" stroke="#000" stroke-width="1.2" stroke-linecap="square"/>
+<text x="1188" y="1024" font-family="Arial, Helvetica, sans-serif" font-size="10" text-anchor="start" font-weight="normal" font-style="normal" fill="#000">Title</text>
+<text x="1240" y="1036" font-family="Arial, Helvetica, sans-serif" font-size="17" text-anchor="start" font-weight="bold" font-style="normal" fill="#000">Doomscroll Breaker - System Wiring</text>
+<text x="1188" y="1060" font-family="Arial, Helvetica, sans-serif" font-size="10" text-anchor="start" font-weight="normal" font-style="normal" fill="#000">Project</text>
+<text x="1240" y="1066" font-family="Arial, Helvetica, sans-serif" font-size="14" text-anchor="start" font-weight="normal" font-style="normal" fill="#000">CG2271 Mini Project</text>
+<text x="1240" y="1086" font-family="Arial, Helvetica, sans-serif" font-size="12" text-anchor="start" font-weight="normal" font-style="normal" fill="#000">FRDM-MCXC444 + LOLIN ESP32-S2 Mini + sensor kit</text>
+<text x="1188" y="1114" font-family="Arial, Helvetica, sans-serif" font-size="12" text-anchor="start" font-weight="normal" font-style="normal" fill="#000">Size: A3</text>
+<text x="1418.0" y="1114" font-family="Arial, Helvetica, sans-serif" font-size="12" text-anchor="start" font-weight="normal" font-style="normal" fill="#000">Sheet 1 of 1</text>
+<text x="1188" y="1140" font-family="Arial, Helvetica, sans-serif" font-size="12" text-anchor="start" font-weight="normal" font-style="normal" fill="#000">Date: 20/10/2026</text>
+<text x="1418.0" y="1140" font-family="Arial, Helvetica, sans-serif" font-size="12" text-anchor="start" font-weight="normal" font-style="normal" fill="#000">Rev: 2.0 (B/W)</text>
+</svg>

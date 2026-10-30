@@ -1,0 +1,30 @@
+{
+  "manifest_version": 3,
+  "name": "Doomscroll Breaker Lock",
+  "version": "1.1",
+  "description": "Keeps TikTok and Instagram locked unless the Doomscroll Breaker is plugged in, open, and has videos left.",
+  "host_permissions": [
+    "http://127.0.0.1:47271/*"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_title": "Doomscroll Breaker"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://*.tiktok.com/*",
+        "https://*.instagram.com/*"
+      ],
+      "js": [
+        "gate.js"
+      ],
+      "css": [
+        "gate.css"
+      ],
+      "run_at": "document_start"
+    }
+  ]
+}
