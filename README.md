@@ -49,7 +49,7 @@ Power every kit module from **3.3 V**. Join GND between the boards; keep the two
 | Joystick (one axis) | VRy | PTB0 | A0 |
 | Sound sensor | DO | PTA12 | D3 |
 | Button | S | PTA13 | D8 |
-| RGB LED | R / G | PTA5 / PTE30 | D5 / D7 |
+| RGB LED, each via 220 Ω (R1–R3) | R / G / B | PTA5 / PTE30 / PTB1 | D5 / D7 / A1 |
 | Passive buzzer | S | PTB2 | A2 |
 | ESP32 link | TX → ESP32 RX / RX ← ESP32 TX | PTE22 / PTE23 | - |
 | Segment LCD | on board (leave JP7 shorted) | - | - |
