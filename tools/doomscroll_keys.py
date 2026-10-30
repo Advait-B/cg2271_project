@@ -1,63 +1,55 @@
 #!/usr/bin/env python3
 """Doomscroll Breaker - laptop-side key presser (Option B).
 
-Reads the ESP32's serial output and, whenever it prints "DBG key 217" / "DBG key 218",
-presses Down / Up arrow (and L for a clap/like) on this Mac so the frontmost window (TikTok) scrolls.
-It also follows "DBG vol up/down/mute" from the EC11 volume knob and changes the Mac's volume.
+Reads the ESP32's serial output. "$KEY,down|up|like" presses Down / Up / L on this Mac so the
+frontmost window (TikTok) scrolls, and "$VOL,up|down|mute" (EC11 knob) changes the Mac's volume.
 
 Browser lock: the ESP32 prints "$STATE,<state>,<left>" every second. This script serves the latest
 one on http://127.0.0.1:47271/state for the Chrome extension (Project/extension). If this script
 isn't running, or the ESP32 stops talking (cable pulled), TikTok / Instagram stay locked.
 
 Network: the ESP32's Wi-Fi is off (USE_WIFI = false in the sketch), so this script also does its
-networking. "$ASK,<watched>" -> Telegram Approve/Deny message to the friend, answer goes back as
+networking. "$ASK,<watched>,<bonus>" -> Telegram Approve/Deny message to the friend, answer goes back as
 "$REPLY,APPROVED|DENIED". "$SESSION,<json>" / "$BUDGET,<date>,<left>,<watched>" -> Firebase.
 It sends "$DATE,YYYY-MM-DD" to the ESP32 so the daily budget resets at midnight.
-Bot token, chat id, Firebase URL/secret are read from the ESP32 sketch, so they live in one place.
+Bot token, chat id, Firebase URL/secret are read from doomscroll_esp32/secrets.h.
 
-Set PRESS_KEYS = False below if the ESP32's own USB keyboard cable (GPIO19/20) is plugged in,
-otherwise every scroll would happen twice.
+Set FORWARD_INPUT = False below if the ESP32's own USB cable (GPIO19/20) is plugged in: the ESP32
+then sends the keys and volume itself, and forwarding them too would do everything twice.
 
-Run:   python3 ~/Desktop/Y2S1/CG2271/Project/tools/doomscroll_keys.py
+Run:   python3 tools/doomscroll_keys.py
 Stop:  Ctrl-C
 """
-import glob, json, os, select, subprocess, sys, termios, threading, time
+import glob, json, os, re, select, subprocess, sys, termios, threading, time
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 
-PRESS_KEYS = True       # False if the ESP32's own USB keyboard cable is connected
+FORWARD_INPUT = True    # False if the ESP32's own USB cable (HID keyboard + volume) is connected
 LOCK_PORT = 47271       # must match extension/background.js
 
 device = {"state": None, "left": 0, "seen": 0.0}   # latest $STATE line from the ESP32
 serial_fd = None                                    # current ESP32 port, for writing replies
 
-SKETCH = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "doomscroll_esp32", "doomscroll_esp32.ino")
-FRIEND_TIMEOUT_S = 120
+SECRETS = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "doomscroll_esp32", "secrets.h")
+FRIEND_TIMEOUT_S = 120   # the FRDM gives up by itself after 150 s
 
 
-SECRETS = os.path.join(os.path.dirname(SKETCH), "secrets.h")
+def secret(name):
+    try:
+        m = re.search(name + r'\s*=\s*"([^"]*)"', open(SECRETS).read())
+        return m.group(1) if m else ""
+    except OSError:
+        return ""
 
 
-def sketch_constant(name):
-    import re
-    for path in (SECRETS, SKETCH):
-        try:
-            m = re.search(name + r'\s*=\s*"([^"]*)"', open(path).read())
-            if m:
-                return m.group(1)
-        except OSError:
-            pass
-    return ""
+BOT_TOKEN = secret("BOT_TOKEN")
+FRIEND_CHAT_ID = secret("FRIEND_CHAT_ID")
+USER_NAME = secret("USER_NAME")
+FIREBASE_URL = secret("FIREBASE_URL")
+FIREBASE_SECRET = secret("FIREBASE_SECRET")
 
-
-BOT_TOKEN = sketch_constant("BOT_TOKEN")
-FRIEND_CHAT_ID = sketch_constant("FRIEND_CHAT_ID")
-USER_NAME = sketch_constant("USER_NAME")
-FIREBASE_URL = sketch_constant("FIREBASE_URL")
-FIREBASE_SECRET = sketch_constant("FIREBASE_SECRET")
-
-KEYS = {217: ("key code 125", "DOWN  (next video)"),      # ESP32 KEY_DOWN_ARROW
-        218: ("key code 126", "UP    (previous video)"),  # ESP32 KEY_UP_ARROW
-        108: ('keystroke "l"', "L     (like - clap)")}     # ESP32 'l' = TikTok like shortcut
+KEYS = {"down": ("key code 125", "DOWN  (next video)"),
+        "up": ("key code 126", "UP    (previous video)"),
+        "like": ('keystroke "l"', "L     (like - clap)")}  # 'l' = TikTok like shortcut
 
 VOLUME_STEP = 6  # % per knob click (macOS volume keys move about 6 %)
 VOLUME = {"up": f"set volume output volume ((output volume of (get volume settings)) + {VOLUME_STEP})",
@@ -142,7 +134,7 @@ def send_to_esp32(text):
 asking = threading.Lock()
 
 
-def ask_friend(watched):
+def ask_friend(watched, bonus):
     if not asking.acquire(blocking=False):
         print("   >>> already waiting for the friend", flush=True)
         return
@@ -151,7 +143,7 @@ def ask_friend(watched):
         old = telegram("getUpdates", offset=-1, limit=1, timeout=0)
         last = max([u["update_id"] for u in old.get("result", [])] or [0])
         sent = telegram("sendMessage", chat_id=FRIEND_CHAT_ID,
-                        text=f"{USER_NAME} has watched {watched} videos today and wants 10 more.",
+                        text=f"{USER_NAME} has watched {watched} videos today and wants {bonus} more.",
                         reply_markup=json.dumps({"inline_keyboard": [[
                             {"text": "Approve", "callback_data": "approve"},
                             {"text": "Deny", "callback_data": "deny"}]]}))
@@ -174,7 +166,7 @@ def ask_friend(watched):
                          text="Approved" if approved else "Denied")
                 send_to_esp32("$REPLY,APPROVED" if approved else "$REPLY,DENIED")
                 telegram("sendMessage", chat_id=FRIEND_CHAT_ID,
-                         text="Approved: +10 videos." if approved else "Denied.")
+                         text=f"Approved: +{bonus} videos." if approved else "Denied.")
                 print(f"   >>> friend {'APPROVED' if approved else 'DENIED'}", flush=True)
                 return
         send_to_esp32("$REPLY,DENIED")
@@ -206,7 +198,9 @@ def handle(line):
         return
     print(line, flush=True)
     if line.startswith("$ASK,"):
-        in_background(ask_friend, line.split(",", 1)[1])
+        parts = line.split(",")
+        if len(parts) == 3:
+            in_background(ask_friend, parts[1], parts[2])
         return
     if line.startswith("$SESSION,"):
         in_background(firebase, "POST", "/sessions", line.split(",", 1)[1])
@@ -217,21 +211,17 @@ def handle(line):
             body = json.dumps({"left": int(parts[2]), "watched": int(parts[3])})
             in_background(firebase, "PUT", f"/budget/{USER_NAME}/{parts[1]}", body)
         return
-    if line.startswith("DBG vol "):
-        parts = line.split()
-        what = parts[2] if len(parts) > 2 else ""
-        if what in VOLUME:
+    if line.startswith("$VOL,"):
+        what = line[5:]
+        if what in VOLUME and FORWARD_INPUT:
             subprocess.Popen(["osascript", "-e", VOLUME[what]],
                              stdout=subprocess.DEVNULL, stderr=subprocess.PIPE)
             print(f"   >>> volume {what}", flush=True)
         return
-    if line.startswith("DBG key "):
-        try:
-            k = int(line.split()[2])
-        except (IndexError, ValueError):
-            return
-        if k in KEYS and PRESS_KEYS:
-            code, name = KEYS[k]
+    if line.startswith("$KEY,"):
+        what = line[5:]
+        if what in KEYS and FORWARD_INPUT:
+            code, name = KEYS[what]
             press(code)
             print(f"   >>> pressed {name}", flush=True)
 
@@ -239,7 +229,7 @@ def handle(line):
 def main():
     print("Doomscroll helper (keys + browser lock + Telegram/Firebase) - Ctrl-C to stop.")
     if not BOT_TOKEN:
-        print(f"!!! couldn't read the bot token from {SKETCH}", flush=True)
+        print(f"!!! couldn't read the bot token from {SECRETS}", flush=True)
     start_lock_server()
     print("Click on the TikTok video once so the browser has focus.\n")
     while True:

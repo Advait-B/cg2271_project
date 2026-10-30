@@ -10,23 +10,21 @@
 #include "queue.h"
 #include "semphr.h"
 
-//#if (configUSE_PREEMPTION != 1) || (configUSE_TIME_SLICING != 1)
-//#error "Enable configUSE_PREEMPTION and configUSE_TIME_SLICING in FreeRTOSConfig.h"
-//#endif
-
-#define DAILY_BUDGET     10
+// The FRDM keeps the live count; the ESP32 saves it to flash, resets it each day and sends it back with PKT_SYNC.
+#define DAILY_BUDGET     10    // only used until the ESP32's first PKT_SYNC arrives
 #define UNLOCK_BONUS     10
 #define AMBER_LEFT       3
 #define LONG_PRESS_MS    1000
 #define DEBOUNCE_MS      30
 #define CLAP_GAP_MS      1000
 #define DENY_SHOW_MS     3000
+#define ASK_TIMEOUT_MS   150000  // backstop: the laptop helper itself gives up after 120 s and replies DENIED
 
 #define SOUND_PIN        12  // PTA12 (D3)
 #define BUTTON_PIN       13  // PTA13 (D8)
 #define JOY_PIN          0   // PTB0 (A0), ADC0_SE8
 #define JOY_CHANNEL      8
-#define LED_B_PIN        1   // PTB1 (A1)
+#define LED_B_PIN        1   // PTB1 (A1), unused, held off
 #define BUZZER_PIN       2   // PTB2 (A2), TPM2_CH0
 #define LED_R_PIN        5   // PTA5 (D5), TPM0_CH2
 #define LED_G_PIN        30  // PTE30 (D7), TPM0_CH3
@@ -45,27 +43,26 @@
 #define JOY_CENTRE_HIGH  2600
 
 #define BAUD_RATE        9600
-#define UART2_INT_PRIO   128
-#define PORTA_INT_PRIO   64
+// NVIC_SetPriority takes a level, 0 (highest) to 3 on the Cortex-M0+ (2 priority bits)
+#define PORTA_INT_PRIO   1
+#define UART2_INT_PRIO   2
 
 #define PACKET_START     0xAA
 #define PACKET_SIZE      5
 
+// FRDM -> ESP32
 #define PKT_HELLO        0x01
 #define PKT_OPEN         0x02
 #define PKT_CLOSE        0x03
-#define PKT_NEXT         0x04
+#define PKT_NEXT         0x04  // a = new video?, b = left
 #define PKT_PREV         0x05
 #define PKT_LIKE         0x06
-#define PKT_STATE        0x07
-#define PKT_ASK          0x08
-#define PKT_SYNC         0x10
+#define PKT_STATE        0x07  // a = State, b = left
+#define PKT_ASK          0x08  // b = videos the friend is asked for
+// ESP32 -> FRDM
+#define PKT_SYNC         0x10  // value = left
 #define PKT_APPROVED     0x11
 #define PKT_DENIED       0x12
-#define PKT_BREAK_START  0x13
-#define PKT_BREAK_TICK   0x14
-#define PKT_BREAK_CANCEL 0x15
-#define PKT_BREAK_DONE   0x16
 
 #define SEG_A            0x01
 #define SEG_B            0x02
@@ -81,8 +78,7 @@ typedef enum {
 	ST_IDLE,
 	ST_OPEN,
 	ST_LOCKED,
-	ST_WAITING,
-	ST_BREAK
+	ST_WAITING
 } State;
 
 typedef enum {
@@ -93,11 +89,7 @@ typedef enum {
 	EV_LONG_PRESS,
 	EV_SYNC,
 	EV_APPROVED,
-	EV_DENIED,
-	EV_BREAK_START,
-	EV_BREAK_TICK,
-	EV_BREAK_CANCEL,
-	EV_BREAK_DONE
+	EV_DENIED
 } EventType;
 
 typedef enum {
@@ -124,7 +116,8 @@ typedef struct {
 	int left;
 	int pos;
 	int maxPos;
-	int breakSecs;
+	TickType_t askedAt;   // when ST_WAITING started
+	TickType_t deniedAt;  // when the friend said no (0 = not showing "dEny")
 } Session;
 
 typedef struct {
@@ -155,21 +148,21 @@ static const uint8_t DIGIT_GLYPHS[10] = {0x3F, 0x06, 0x5B, 0x4F, 0x66, 0x6D, 0x7
 static const uint8_t TEXT_OFF[4] = {0x3F, 0x71, 0x71, 0x00};
 static const uint8_t TEXT_LOC[4] = {0x38, 0x3F, 0x39, 0x00};
 static const uint8_t TEXT_SENT[4] = {0x6D, 0x79, 0x54, 0x78};
-static const uint8_t TEXT_DENY[4] = {0x5E, 0x79, 0x54, 0x6E};  // "dEny": the friend said no
+static const uint8_t TEXT_DENY[4] = {0x5E, 0x79, 0x54, 0x6E};
 
-static volatile TickType_t denyShownAt = 0;  // when "dEny" started showing (0 = not showing)
-static const uint8_t LCD_DEFG_PINS[4] = {20, 26, 40, 43};
-static const uint8_t LCD_CBA_PINS[4] = {24, 27, 42, 44};
+// on-board 4-digit LCD: SLCD pin numbers
+static const uint8_t LCD_BACKPLANE_PINS[4] = {59, 60, 14, 15};  // COM0..COM3
+static const uint8_t LCD_DEFG_PINS[4] = {20, 26, 40, 43};       // segments D E G F of digits 1..4
+static const uint8_t LCD_CBA_PINS[4] = {24, 27, 42, 44};        // segments (colon) C B A of digits 1..4
 
 static QueueHandle_t eventQueue;
 static QueueHandle_t soundQueue;
 static QueueHandle_t txQueue;
+static QueueHandle_t rxQueue;  // whole PACKET_SIZE frames from the UART ISR
 static SemaphoreHandle_t sessionMutex;
-static SemaphoreHandle_t uartRxSem;
 static SemaphoreHandle_t txDoneSem;
 
-static Session session = {ST_IDLE, DAILY_BUDGET, 0, 0, 0};
-static volatile uint8_t rxFrame[PACKET_SIZE];
+static Session session = {ST_IDLE, DAILY_BUDGET, 0, 0, 0, 0};
 static volatile uint8_t txFrame[PACKET_SIZE];
 static volatile int txIdx = PACKET_SIZE;
 
@@ -198,6 +191,7 @@ static void initLED(void) {
 	setMux(PORTE, LED_G_PIN, 3);
 	setMux(PORTB, LED_B_PIN, 1);
 	GPIOB->PDDR |= (1 << LED_B_PIN);
+	GPIOB->PCOR = (1 << LED_B_PIN);
 
 	TPM0->SC = 0;
 	TPM0->CNT = 0;
@@ -210,14 +204,9 @@ static void initLED(void) {
 	TPM0->SC |= TPM_SC_CMOD(1);
 }
 
-static void setLED(int redPct, int greenPct, bool blue) {
+static void setLED(int redPct, int greenPct) {
 	TPM0->CONTROLS[LED_R_CH].CnV = LED_PWM_MOD * redPct / 100;
 	TPM0->CONTROLS[LED_G_CH].CnV = LED_PWM_MOD * greenPct / 100;
-	if (blue) {
-		GPIOB->PSOR = (1 << LED_B_PIN);
-	} else {
-		GPIOB->PCOR = (1 << LED_B_PIN);
-	}
 }
 
 static void initBuzzer(void) {
@@ -244,6 +233,13 @@ static void buzzerTone(uint16_t freq) {
 	TPM2->SC |= TPM_SC_CMOD(1);
 }
 
+static void lcdEnablePin(uint8_t pin, bool backplane) {
+	LCD->PEN[pin / 32] |= 1U << (pin % 32);
+	if (backplane) {
+		LCD->BPEN[pin / 32] |= 1U << (pin % 32);
+	}
+}
+
 static void initLCD(void) {
 	setMux(PORTE, 20, 0);
 	setMux(PORTE, 21, 0);
@@ -261,29 +257,26 @@ static void initLCD(void) {
 	LCD->GCR = LCD_GCR_VSUPPLY_MASK | LCD_GCR_LADJ(3) | LCD_GCR_SOURCE_MASK |
 			LCD_GCR_ALTDIV(2) | LCD_GCR_LCLK(1) | LCD_GCR_DUTY(3);
 	LCD->AR = 0;
-	LCD->PEN[0] = (1U << 14) | (1U << 15) | (1U << 20) | (1U << 24) | (1U << 26) | (1U << 27);
-	LCD->PEN[1] = (1U << (40 - 32)) | (1U << (42 - 32)) | (1U << (43 - 32)) |
-			(1U << (44 - 32)) | (1U << (59 - 32)) | (1U << (60 - 32));
-	LCD->BPEN[0] = (1U << 14) | (1U << 15);
-	LCD->BPEN[1] = (1U << (59 - 32)) | (1U << (60 - 32));
-	LCD->WF8B[59] = 0x11;
-	LCD->WF8B[60] = 0x22;
-	LCD->WF8B[14] = 0x44;
-	LCD->WF8B[15] = 0x88;
+	LCD->PEN[0] = LCD->PEN[1] = 0;
+	LCD->BPEN[0] = LCD->BPEN[1] = 0;
 	for (int i = 0; i < 4; i++) {
+		lcdEnablePin(LCD_BACKPLANE_PINS[i], true);
+		LCD->WF8B[LCD_BACKPLANE_PINS[i]] = 0x11 << i;  // COMi is active in phases i and i+4
+		lcdEnablePin(LCD_DEFG_PINS[i], false);
+		lcdEnablePin(LCD_CBA_PINS[i], false);
 		LCD->WF8B[LCD_DEFG_PINS[i]] = 0;
 		LCD->WF8B[LCD_CBA_PINS[i]] = 0;
 	}
 	LCD->GCR |= LCD_GCR_LCDEN_MASK;
 }
 
-static void lcdShow(const uint8_t glyphs[4], bool colon) {
+static void lcdShow(const uint8_t glyphs[4]) {
 	for (int i = 0; i < 4; i++) {
 		uint8_t g = glyphs[i];
 		LCD->WF8B[LCD_DEFG_PINS[i]] = ((g & SEG_D) ? 0x11 : 0) | ((g & SEG_E) ? 0x22 : 0) |
 				((g & SEG_G) ? 0x44 : 0) | ((g & SEG_F) ? 0x88 : 0);
-		LCD->WF8B[LCD_CBA_PINS[i]] = ((i == 3 && colon) ? 0x11 : 0) | ((g & SEG_C) ? 0x22 : 0) |
-				((g & SEG_B) ? 0x44 : 0) | ((g & SEG_A) ? 0x88 : 0);
+		LCD->WF8B[LCD_CBA_PINS[i]] = ((g & SEG_C) ? 0x22 : 0) | ((g & SEG_B) ? 0x44 : 0) |
+				((g & SEG_A) ? 0x88 : 0);
 	}
 }
 
@@ -295,12 +288,7 @@ static void lcdNumber(int n) {
 	if (n >= 100) {
 		glyphs[1] = DIGIT_GLYPHS[(n / 100) % 10];
 	}
-	lcdShow(glyphs, false);
-}
-
-static void lcdTime(int secs) {
-	uint8_t glyphs[4] = {0, DIGIT_GLYPHS[(secs / 60) % 10], DIGIT_GLYPHS[(secs % 60) / 10], DIGIT_GLYPHS[secs % 10]};
-	lcdShow(glyphs, true);
+	lcdShow(glyphs);
 }
 
 static void initJoystick(void) {
@@ -325,7 +313,7 @@ static void initInputs(void) {
 	PORTA->PCR[SOUND_PIN] |= PORT_PCR_PE_MASK | PORT_PCR_PS_MASK;
 	GPIOA->PDDR &= ~((1 << BUTTON_PIN) | (1 << SOUND_PIN));
 	PORTA->PCR[BUTTON_PIN] &= ~PORT_PCR_IRQC_MASK;
-	PORTA->PCR[BUTTON_PIN] |= PORT_PCR_IRQC(0b1011);
+	PORTA->PCR[BUTTON_PIN] |= PORT_PCR_IRQC(0b1011);  // both edges
 	PORTA->PCR[SOUND_PIN] &= ~PORT_PCR_IRQC_MASK;
 	PORTA->PCR[SOUND_PIN] |= PORT_PCR_IRQC(0b1011);
 	PORTA->ISFR = (1 << BUTTON_PIN) | (1 << SOUND_PIN);
@@ -341,7 +329,6 @@ void PORTA_IRQHandler(void) {
 	TickType_t now = xTaskGetTickCountFromISR();
 	Event ev = {EV_CLAP, 0};
 
-	NVIC_ClearPendingIRQ(PORTA_IRQn);
 	if (PORTA->ISFR & (1 << BUTTON_PIN)) {
 		if (!(GPIOA->PDIR & (1 << BUTTON_PIN))) {
 			pressTick = now;
@@ -400,11 +387,8 @@ void UART2_FLEXIO_IRQHandler(void) {
 		if (rxIdx > 0 || byte == PACKET_START) {
 			frame[rxIdx++] = byte;
 			if (rxIdx == PACKET_SIZE) {
-				for (int i = 0; i < PACKET_SIZE; i++) {
-					rxFrame[i] = frame[i];
-				}
 				rxIdx = 0;
-				xSemaphoreGiveFromISR(uartRxSem, &hpw);
+				xQueueSendFromISR(rxQueue, frame, &hpw);  // copies the frame
 			}
 		}
 	}
@@ -423,12 +407,6 @@ static void playSound(Sound s) {
 static void lockSession(void) {
 	session.state = ST_LOCKED;
 	playSound(SND_LOCK);
-}
-
-static void grantVideos(void) {
-	session.left += UNLOCK_BONUS;
-	session.state = ST_OPEN;
-	playSound(SND_TUNE);
 }
 
 static void onShortPress(void) {
@@ -451,7 +429,8 @@ static void onShortPress(void) {
 		sendPacket(PKT_CLOSE, 0, 0);
 		playSound(SND_BEEP);
 		break;
-	default:
+	case ST_WAITING:
+		session.state = ST_LOCKED;  // give up on the friend
 		playSound(SND_ERROR);
 		break;
 	}
@@ -462,9 +441,10 @@ static void onLongPress(void) {
 		playSound(SND_ERROR);
 		return;
 	}
-	denyShownAt = 0;
+	session.deniedAt = 0;
+	session.askedAt = xTaskGetTickCount();
 	session.state = ST_WAITING;
-	sendPacket(PKT_ASK, 0, 0);
+	sendPacket(PKT_ASK, 0, UNLOCK_BONUS);
 	playSound(SND_BEEP);
 }
 
@@ -521,34 +501,20 @@ static void onFriendReply(bool approved) {
 		return;
 	}
 	if (approved) {
-		grantVideos();
+		session.left += UNLOCK_BONUS;
+		session.state = ST_OPEN;
+		playSound(SND_TUNE);
 	} else {
 		session.state = ST_LOCKED;
-		denyShownAt = xTaskGetTickCount();
-		if (denyShownAt == 0) {
-			denyShownAt = 1;
-		}
+		session.deniedAt = xTaskGetTickCount() | 1;  // never 0, which means "not showing"
 		playSound(SND_ERROR);
 	}
 }
 
-static void onBreak(EventType type, int secs) {
-	if (type == EV_BREAK_START && session.state == ST_LOCKED) {
-		session.state = ST_BREAK;
-		session.breakSecs = secs;
-		playSound(SND_BEEP);
-		return;
-	}
-	if (session.state != ST_BREAK) {
-		return;
-	}
-	if (type == EV_BREAK_TICK) {
-		session.breakSecs = secs;
-	} else if (type == EV_BREAK_CANCEL) {
-		session.state = ST_LOCKED;
-		playSound(SND_ERROR);
-	} else if (type == EV_BREAK_DONE) {
-		grantVideos();
+static void checkAskTimeout(void) {
+	if (session.state == ST_WAITING &&
+			xTaskGetTickCount() - session.askedAt >= pdMS_TO_TICKS(ASK_TIMEOUT_MS)) {
+		onFriendReply(false);
 	}
 }
 
@@ -557,36 +523,37 @@ static void controlTask(void *p) {
 	Event ev;
 
 	while (1) {
-		xQueueReceive(eventQueue, &ev, portMAX_DELAY);
+		// wakes at least once a second so the ask timeout is checked
+		bool got = xQueueReceive(eventQueue, &ev, pdMS_TO_TICKS(1000)) == pdTRUE;
 		xSemaphoreTake(sessionMutex, portMAX_DELAY);
 		State before = session.state;
-		switch (ev.type) {
-		case EV_SHORT_PRESS:
-			onShortPress();
-			break;
-		case EV_LONG_PRESS:
-			onLongPress();
-			break;
-		case EV_NEXT:
-			onNext();
-			break;
-		case EV_PREV:
-			onPrev();
-			break;
-		case EV_CLAP:
-			onClap();
-			break;
-		case EV_SYNC:
-			onSync(ev.value);
-			break;
-		case EV_APPROVED:
-		case EV_DENIED:
-			onFriendReply(ev.type == EV_APPROVED);
-			break;
-		default:
-			onBreak(ev.type, ev.value);
-			break;
+		if (got) {
+			switch (ev.type) {
+			case EV_SHORT_PRESS:
+				onShortPress();
+				break;
+			case EV_LONG_PRESS:
+				onLongPress();
+				break;
+			case EV_NEXT:
+				onNext();
+				break;
+			case EV_PREV:
+				onPrev();
+				break;
+			case EV_CLAP:
+				onClap();
+				break;
+			case EV_SYNC:
+				onSync(ev.value);
+				break;
+			case EV_APPROVED:
+			case EV_DENIED:
+				onFriendReply(ev.type == EV_APPROVED);
+				break;
+			}
 		}
+		checkAskTimeout();
 		if (session.state != before) {
 			sendPacket(PKT_STATE, session.state, session.left);
 		}
@@ -633,35 +600,32 @@ static void displayTask(void *p) {
 		Session s = session;
 		xSemaphoreGive(sessionMutex);
 
-		bool blinkOn = (xTaskGetTickCount() / pdMS_TO_TICKS(500)) % 2 == 0;
+		TickType_t now = xTaskGetTickCount();
+		bool blinkOn = (now / pdMS_TO_TICKS(500)) % 2 == 0;
 		switch (s.state) {
 		case ST_IDLE:
-			setLED(0, 0, false);
-			lcdShow(TEXT_OFF, false);
+			setLED(0, 0);
+			lcdShow(TEXT_OFF);
 			break;
 		case ST_OPEN:
 			if (s.left <= AMBER_LEFT) {
-				setLED(100, 25, false);
+				setLED(100, 25);
 			} else {
-				setLED(0, 100, false);
+				setLED(0, 100);
 			}
 			lcdNumber(s.left);
 			break;
 		case ST_LOCKED:
-			setLED(100, 0, false);
-			if (denyShownAt != 0 && xTaskGetTickCount() - denyShownAt < pdMS_TO_TICKS(DENY_SHOW_MS)) {
-				lcdShow(TEXT_DENY, false);  // friend denied: "dEny" for 3 s, then back to "LOC"
+			setLED(100, 0);
+			if (s.deniedAt != 0 && now - s.deniedAt < pdMS_TO_TICKS(DENY_SHOW_MS)) {
+				lcdShow(TEXT_DENY);
 			} else {
-				lcdShow(TEXT_LOC, false);
+				lcdShow(TEXT_LOC);
 			}
 			break;
 		case ST_WAITING:
-			setLED(blinkOn ? 100 : 0, 0, false);
-			lcdShow(TEXT_SENT, false);
-			break;
-		case ST_BREAK:
-			setLED(0, 0, true);
-			lcdTime(s.breakSecs);
+			setLED(blinkOn ? 100 : 0, 0);
+			lcdShow(TEXT_SENT);
 			break;
 		}
 		vTaskDelay(pdMS_TO_TICKS(100));
@@ -673,12 +637,7 @@ static void uartRxTask(void *p) {
 	uint8_t f[PACKET_SIZE];
 
 	while (1) {
-		xSemaphoreTake(uartRxSem, portMAX_DELAY);
-		taskENTER_CRITICAL();
-		for (int i = 0; i < PACKET_SIZE; i++) {
-			f[i] = rxFrame[i];
-		}
-		taskEXIT_CRITICAL();
+		xQueueReceive(rxQueue, f, portMAX_DELAY);
 		if ((f[1] ^ f[2] ^ f[3]) != f[4]) {
 			continue;
 		}
@@ -693,18 +652,6 @@ static void uartRxTask(void *p) {
 			break;
 		case PKT_DENIED:
 			ev.type = EV_DENIED;
-			break;
-		case PKT_BREAK_START:
-			ev.type = EV_BREAK_START;
-			break;
-		case PKT_BREAK_TICK:
-			ev.type = EV_BREAK_TICK;
-			break;
-		case PKT_BREAK_CANCEL:
-			ev.type = EV_BREAK_CANCEL;
-			break;
-		case PKT_BREAK_DONE:
-			ev.type = EV_BREAK_DONE;
 			break;
 		default:
 			continue;
@@ -741,8 +688,8 @@ int main(void) {
 	eventQueue = xQueueCreate(16, sizeof(Event));
 	soundQueue = xQueueCreate(8, sizeof(Sound));
 	txQueue = xQueueCreate(16, sizeof(Packet));
+	rxQueue = xQueueCreate(4, PACKET_SIZE);
 	sessionMutex = xSemaphoreCreateMutex();
-	uartRxSem = xSemaphoreCreateBinary();
 	txDoneSem = xSemaphoreCreateBinary();
 
 	initClocks();
@@ -766,5 +713,4 @@ int main(void) {
 
 	while (1) {
 	}
-	return 0;
 }
