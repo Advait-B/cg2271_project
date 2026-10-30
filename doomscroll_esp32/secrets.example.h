@@ -1,4 +1,4 @@
-// Copy this file to secrets.h (same folder) and fill in the real values. secrets.h is git-ignored.
+// Template for secrets.h. Only USER_NAME is used by the sketch; the laptop helper and tools read the rest.
 #pragma once
 
 const char* WIFI_SSID = "your-hotspot";
