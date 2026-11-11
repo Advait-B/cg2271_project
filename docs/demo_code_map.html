@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Demo Code Map</title>
+<style>
+  @page { size: A4; margin: 14mm 14mm 14mm 14mm; }
+  body { font-family: Arial, Helvetica, sans-serif; font-size: 9.6pt; color: #000; background: #fff; margin: 0; }
+  h1 { font-size: 15pt; margin: 0 0 3px; }
+  .sub { margin: 0 0 8px; }
+  h2 { font-size: 10.5pt; margin: 11px 0 4px; break-after: avoid; }
+  code { font-family: Consolas, "DejaVu Sans Mono", monospace; font-size: 8.8pt; }
+  b.k { font-family: Consolas, monospace; font-size: 8.4pt; }
+  .files { border: 1px solid #000; padding: 6px 10px; line-height: 1.55; margin-bottom: 4px; }
+  table { width: 100%; border-collapse: collapse; break-inside: auto; }
+  tr { break-inside: avoid; }
+  td { border: 1px solid #000; padding: 3px 6px; vertical-align: top; line-height: 1.35; }
+  td:first-child { width: 27%; }
+  th { border: 1px solid #000; padding: 3px 6px; text-align: left; }
+</style>
+</head>
+<body>
+<h1>Doomscroll Breaker: where to point in the code</h1>
+<p class="sub">For each requirement, open the file and scroll to the line numbers shown. Line numbers match the code at commit <code>bc29d37</code>.</p>
+
+<div class="files">
+<b class="k">MCX</b> <code>mcxc444/MCXC444_Project/source/MCXC444_Project.c</code> (open in MCUXpresso)<br>
+<b class="k">ESP</b> <code>doomscroll_esp32_wifi/doomscroll_esp32_wifi.ino</code> (on-board Wi-Fi version, the one to demo)<br>
+<b class="k">CFG</b> <code>mcxc444/MCXC444_Project/freertos/freertos-kernel/template/FreeRTOSConfig.h</code><br>
+<b class="k">HLP</b> <code>tools/doomscroll_keys.py</code> &nbsp; <b class="k">EXT</b> <code>extension/gate.js</code>, <code>extension/background.js</code>
+</div>
+
+<h2>Sensors and actuators (5 marks)</h2>
+<table>
+<tr><th>Requirement</th><th>Show</th></tr>
+<tr><td>4 sensors</td><td><b class="k">MCX</b> <code>initJoystick</code> 294, <code>initInputs</code> 308 (button + sound sensor); <b class="k">ESP</b> <code>initEncoder</code> 356 (EC11).</td></tr>
+<tr><td>3 actuators</td><td><b class="k">MCX</b> <code>initLCD</code> 243 (<code>lcdShow</code> 273, <code>lcdNumber</code> 283), <code>initLED</code> 189 / <code>setLED</code> 207, <code>initBuzzer</code> 212 / <code>buzzerTone</code> 224.</td></tr>
+<tr><td>&ge; 1 sensor on MCXC444; max 1 on-board sensor and actuator</td><td><b class="k">MCX</b> pin <code>#define</code>s 23&ndash;32: 3 external sensors on the MCXC444. Only the LCD is on-board; no on-board sensor used.</td></tr>
+<tr><td>Why each board (justification)</td><td>Joystick, button and sound sit on the MCXC444, which runs the session logic. The EC11 sits on the <b class="k">ESP</b> because the ESP32 sends the volume keys over USB HID (<code>pollEncoder</code> 371, <code>pressVolume</code> 365).</td></tr>
+</table>
+
+<h2>Polling and interrupts (2 marks)</h2>
+<table>
+<tr><td>Polled sensor</td><td><b class="k">MCX</b> <code>joystickTask</code> 564&ndash;579: reads the ADC (<code>readJoystick</code> 301) every 20 ms via <code>vTaskDelay</code> 577. Also <b class="k">ESP</b> encoder push switch, polled and debounced in <code>pollEncoder</code>.</td></tr>
+<tr><td>Interrupt sensor</td><td><b class="k">MCX</b> <code>initInputs</code> 315&ndash;322 sets IRQC to either edge and enables PORTA in the NVIC; handled in <code>PORTA_IRQHandler</code> 325. NVIC levels: PORTA 1, UART2 2 (47&ndash;48). Also <b class="k">ESP</b> <code>encoderIsr</code> 349, attached at 361&ndash;362.</td></tr>
+</table>
+
+<h2>ISR design (3 marks)</h2>
+<table>
+<tr><td>Button / sound ISR</td><td><b class="k">MCX</b> <code>PORTA_IRQHandler</code> 325&ndash;350: only reads the tick, debounces, then <code>xQueueSendFromISR</code> (337, 345) and <code>portYIELD_FROM_ISR</code> 349.</td></tr>
+<tr><td>UART ISR, never waits for input</td><td><b class="k">MCX</b> <code>UART2_FLEXIO_IRQHandler</code> 372&ndash;396: handles one byte per interrupt. TX: next byte, then <code>xSemaphoreGiveFromISR(txDoneSem)</code> 382. RX: collects a 5-byte frame and hands it over with <code>xQueueSendFromISR(rxQueue)</code> 391. The checksum check is in a task (641).</td></tr>
+</table>
+
+<h2>Task design (4 marks)</h2>
+<table>
+<tr><td>&ge; 3 tasks, with priorities</td><td><b class="k">MCX</b> <code>main</code> 706&ndash;711: 6 <code>xTaskCreate</code> calls, priorities 4 (uartRx), 3 (control), 2 (joystick, buzzer, uartTx), 1 (display). Scheduler starts at 712. <b class="k">ESP</b> also runs <code>netTask</code> (699) beside <code>loop</code>.</td></tr>
+<tr><td>Tasks yield</td><td>Each task blocks: <code>controlTask</code> on its queue 527 (1 s timeout), <code>joystickTask</code> delay 577, <code>buzzerTask</code> 586/589, <code>displayTask</code> 631, <code>uartRxTask</code> 640, <code>uartTxTask</code> 668/676.</td></tr>
+</table>
+
+<h2>Synchronisation tools (2 marks)</h2>
+<table>
+<tr><td>Mutex / semaphores</td><td><b class="k">MCX</b> created 692&ndash;693. <code>sessionMutex</code> in <code>controlTask</code> 528/560 and <code>displayTask</code> 599&ndash;601. Binary semaphore <code>txDoneSem</code>: given in ISR 382 &rarr; taken by <code>uartTxTask</code> 676.</td></tr>
+<tr><td>Queues</td><td><b class="k">MCX</b> created 688&ndash;691. <code>eventQueue</code> fed at 337, 345 (ISR), 572 (joystick), 659 (uartRx) and read at 527; <code>soundQueue</code> 404 &rarr; 586; <code>txQueue</code> 400 &rarr; 668; <code>rxQueue</code> 391 (ISR) &rarr; 640.</td></tr>
+<tr><td>Shared data with an ISR</td><td><b class="k">MCX</b> RX frames are copied into <code>rxQueue</code> by value (391), so no buffer is shared. TX: <code>txFrame</code>/<code>txIdx</code> are <code>volatile</code> (166&ndash;167) and filled in <code>uartTxTask</code> 669&ndash;674 before the TX interrupt is enabled at 675.</td></tr>
+<tr><td>On the ESP32 too</td><td><b class="k">ESP</b> <code>uartMutex</code> (created 687) around <code>Serial1.write</code> 99&ndash;101, since <code>loop</code> and <code>netTask</code> both send packets; <code>noInterrupts</code> in <code>pollEncoder</code> 372&ndash;376; <code>netQueue</code> created 688, sent at 122 (Telegram ask jumps to the front), received at 656.</td></tr>
+</table>
+
+<h2>RTOS enabled (2 marks)</h2>
+<table>
+<tr><td>Pre-emption and time slicing</td><td><b class="k">CFG</b> lines 54&ndash;57: <code>#undef</code> then <code>#define configUSE_PREEMPTION 1</code> and <code>configUSE_TIME_SLICING 1</code>. These override the SDK's generated file, which set them to 0.</td></tr>
+</table>
+
+<h2>ESP32 use (7 marks)</h2>
+<table>
+<tr><td>Libraries beyond the template</td><td><b class="k">ESP</b> includes 14&ndash;22: WiFi, WiFiClientSecure, HTTPClient, ArduinoJson, Preferences, USB, USBHIDKeyboard, USBHIDConsumerControl.</td></tr>
+<tr><td>Meaningful work</td><td><b class="k">ESP</b> USB keyboard <code>pressKey</code> 200; volume knob <code>pollEncoder</code> 371; budget saved in flash <code>saveBudget</code> 130 / <code>loadBudget</code> 152; midnight reset <code>applyDate</code> 275 fed by SNTP in <code>checkClockDate</code> 411.</td></tr>
+<tr><td>Main loop and task</td><td><b class="k">ESP</b> <code>loop</code> 703&ndash;710; network task <code>netTask</code> 625, created at 699.</td></tr>
+</table>
+
+<h2>Communication protocol (5 marks)</h2>
+<table>
+<tr><td>UART setup</td><td><b class="k">MCX</b> <code>initUART2</code> 352&ndash;370 at <code>BAUD_RATE</code> 9600 (45). <b class="k">ESP</b> <code>Serial1.begin(9600, &hellip;)</code> 686 on pins 26&ndash;27.</td></tr>
+<tr><td>Packetisation</td><td>Packet types <b class="k">MCX</b> 54&ndash;65, <b class="k">ESP</b> 46&ndash;57. Build: <b class="k">MCX</b> <code>uartTxTask</code> 669&ndash;673, <b class="k">ESP</b> <code>sendPacket</code> 95&ndash;102. Parse and check XOR: <b class="k">MCX</b> ISR framing 387&ndash;392 + <code>uartRxTask</code> 641, <b class="k">ESP</b> <code>readMcx</code> 254 (XOR 266).</td></tr>
+<tr><td>Two-way exchange</td><td>MCX &rarr; ESP: <b class="k">ESP</b> <code>handlePacket</code> 205 (NEXT presses a key 219&ndash;220, STATE saves the budget 236, ASK queues the Telegram job 246&ndash;248). ESP &rarr; MCX: SYNC 162, APPROVED / DENIED 566 (Telegram), 296&ndash;298 (helper), 671 (timeout); handled in <b class="k">MCX</b> 646&ndash;655.</td></tr>
+<tr><td>Control flow (handshake)</td><td><b class="k">MCX</b> sends HELLO at boot 704 &rarr; <b class="k">ESP</b> answers with SYNC 208&ndash;211 &rarr; <b class="k">MCX</b> <code>onSync</code> 490.</td></tr>
+</table>
+
+<h2>Online functions (5 marks)</h2>
+<table>
+<tr><td>Telegram approval</td><td><b class="k">ESP</b> HTTPS in <code>telegramGet</code> 445; <code>askFriend</code> 506 (inline Approve/Deny buttons), <code>checkFriendReply</code> 536 (ArduinoJson filter 544&ndash;550, <code>answerCallbackQuery</code> 563). Laptop path: <b class="k">HLP</b> <code>ask_friend</code> 137.</td></tr>
+<tr><td>Firebase database</td><td><b class="k">ESP</b> <code>firebaseWrite</code> 578, called from <code>runJob</code> 597 (POST /sessions 614, PUT /budget 618); jobs come from <code>endSession</code> 183 and <code>uploadBudget</code> 166. Laptop path: <b class="k">HLP</b> <code>firebase</code> 179, used at 206 and 212.</td></tr>
+<tr><td>Wi-Fi and fallback</td><td><b class="k">ESP</b> <code>netTask</code>: <code>WiFi.begin</code> 628, SNTP <code>configTime</code> 644, reconnect 650. If an online call fails, <code>handToHelper</code> 106 prints <code>$ASK</code> / <code>$SESSION</code> / <code>$BUDGET</code> (109&ndash;115) for the helper.</td></tr>
+</table>
+
+<h2>State machine and extras</h2>
+<table>
+<tr><td>State machine</td><td><b class="k">MCX</b> <code>controlTask</code> 521&ndash;562 calls <code>onShortPress</code> 412, <code>onLongPress</code> 439, <code>onNext</code> 451, <code>onSync</code> 490, <code>onFriendReply</code> 499; <code>checkAskTimeout</code> 514. The state is sent on change at 557&ndash;558.</td></tr>
+<tr><td>LCD / LED per state</td><td><b class="k">MCX</b> <code>displayTask</code> 595&ndash;633: amber at &le; 3 on 611&ndash;612, &ldquo;dEny&rdquo; for 3 s 620&ndash;621, blinking red while waiting 627.</td></tr>
+<tr><td>Only new videos count</td><td><b class="k">MCX</b> <code>onNext</code> 459&ndash;464 (<code>pos</code> vs <code>maxPos</code>).</td></tr>
+<tr><td>Browser lock</td><td><b class="k">ESP</b> <code>printState</code> 332 &rarr; <b class="k">HLP</b> <code>LockHandler</code> 60 &rarr; <b class="k">EXT</b> <code>background.js</code> <code>readState</code> 8 &rarr; <code>gate.js</code> <code>check()</code> 82.</td></tr>
+</table>
+</body>
+</html>
